@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "d:/IITM/deepLearning/Assignments/assignment1/main.py", line 6, in <module>
+    wandb.log("demo")
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\wandb_run.py", line 935, in log
+    raise ValueError("wandb.log must be passed a dictionary")
+ValueError: wandb.log must be passed a dictionary

@@ -1,0 +1,54 @@
+2021-02-28 11:36:52,996 INFO    MainThread:8716 [wandb_setup.py:_flush():69] setting env: {}
+2021-02-28 11:36:52,997 INFO    MainThread:8716 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-02-28 11:36:52,997 INFO    MainThread:8716 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210228_113652-1i22n65t\logs\debug.log
+2021-02-28 11:36:52,998 INFO    MainThread:8716 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210228_113652-1i22n65t\logs\debug-internal.log
+2021-02-28 11:36:52,998 INFO    MainThread:8716 [wandb_init.py:init():352] calling init triggers
+2021-02-28 11:36:52,998 INFO    MainThread:8716 [wandb_init.py:init():359] wandb.init called with sweep_config: {}
+config: {}
+2021-02-28 11:36:52,999 INFO    MainThread:8716 [wandb_init.py:init():401] starting backend
+2021-02-28 11:36:53,000 INFO    MainThread:8716 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-02-28 11:36:53,019 INFO    MainThread:8716 [backend.py:ensure_launched():123] starting backend process...
+2021-02-28 11:36:53,196 INFO    MainThread:8716 [backend.py:ensure_launched():128] started backend process with pid: 6456
+2021-02-28 11:36:53,197 INFO    MainThread:8716 [wandb_init.py:init():406] backend started and connected
+2021-02-28 11:36:53,202 INFO    MainThread:8716 [wandb_init.py:init():446] updated telemetry
+2021-02-28 11:36:53,203 INFO    MainThread:8716 [wandb_init.py:init():465] communicating current version
+2021-02-28 11:36:58,205 INFO    MainThread:8716 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-02-28 11:37:00,407 INFO    MainThread:8716 [wandb_init.py:init():503] starting run threads in backend
+2021-02-28 11:37:05,440 INFO    MainThread:8716 [wandb_run.py:_console_start():1422] atexit reg
+2021-02-28 11:37:05,446 INFO    MainThread:8716 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-02-28 11:37:05,450 INFO    MainThread:8716 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-02-28 11:37:05,450 INFO    MainThread:8716 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-02-28 11:37:05,451 INFO    MainThread:8716 [wandb_init.py:init():527] run started, returning control to user process
+2021-02-28 11:37:08,901 INFO    Dummy-10  :8716 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 0
+2021-02-28 11:37:08,906 INFO    Dummy-10  :8716 [wandb_run.py:_restore():1364] restore
+2021-02-28 11:37:12,175 INFO    Dummy-10  :8716 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  media_count: 10
+}
+pusher_stats {
+  total_bytes: 5469
+}
+
+2021-02-28 11:37:14,189 INFO    Dummy-10  :8716 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 5
+  media_count: 10
+}
+pusher_stats {
+  uploaded_bytes: 8993
+  total_bytes: 8993
+}
+
+2021-02-28 11:37:16,196 INFO    Dummy-10  :8716 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+  media_count: 10
+}
+pusher_stats {
+  uploaded_bytes: 8993
+  total_bytes: 8993
+}
+
+2021-02-28 11:37:17,712 INFO    Dummy-10  :8716 [wandb_run.py:_show_summary():1670] rendering summary
+2021-02-28 11:37:17,720 INFO    Dummy-10  :8716 [wandb_run.py:_show_history():1708] rendering history
+2021-02-28 11:37:17,723 INFO    Dummy-10  :8716 [wandb_run.py:_show_files():1737] logging synced files

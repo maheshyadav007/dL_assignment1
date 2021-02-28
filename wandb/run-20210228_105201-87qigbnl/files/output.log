@@ -1,0 +1,5 @@
+(60000, 28, 28)
+Traceback (most recent call last):
+  File "d:/IITM/deepLearning/Assignments/assignment1/main.py", line 18, in <module>
+    labels.append[classLabels[str(y_train[i])]]
+TypeError: 'builtin_function_or_method' object is not subscriptable

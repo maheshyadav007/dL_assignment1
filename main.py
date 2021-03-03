@@ -132,9 +132,9 @@ def train(weights,bias,x,y,optimizer,lossFunction,nHiddenLayers):
 
     return loss, wGrad, bGrad , yHat
 
-'''
+
 sweep_config = {
-    'name' : 'MY sweep',
+    'name' : 'Working sweep',
     "method": "random",
     'metric': { 
         'name':'loss',
@@ -146,9 +146,10 @@ sweep_config = {
         'optimizer':{'values' : ['sgd']},
         'n_hidden_layers' : {'values' : [3,4,5]},
         'size_hidden_layers' : {'values' : [32,64,128]},
-        'batch_size' : {'values': [1,16,32,64]}
+        'batch_size' : {'values': [16,32,64]}
         }
-}'''
+}
+'''
 sweep_config = {
     'name' : 'MY new sweep',
     "method": "grid",
@@ -165,6 +166,7 @@ sweep_config = {
         'batch_size' : {'values': [64]}
         }
 }
+'''
 hyperparameter_defaults = dict(
     batch_size = 128,
     learning_rate = 0.0001,
@@ -181,8 +183,8 @@ def validate(yHat, y, count):
     return False
 
 def run():
-    #wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
-    '''
+    wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
+    
     config = wandb.config
     nHiddenLayers = config.n_hidden_layers
     neurons = []
@@ -203,6 +205,7 @@ def run():
     epochs = 100
     batchSize = 64
     optimizer = "sgd"
+    '''
     #----------------
     outputNeurons = 10
     lossFunction = "SoftMax"
@@ -249,11 +252,11 @@ def run():
             bias = [ b - eta*bG  for b, bG in zip(bias,biasGrad)]
 
         print("After epoch : ",t,"Loss  = ",loss/60000, " Accuracy : ", count/60000)
-        #wandb.log({'epochs':epochs,'loss':loss})
+        wandb.log({'epochs':epochs,'loss':loss, "accuracy":count/60000})
         #wandb.log({"metric":loss })
         t+=1
 
-#sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
-#wandb.agent(sweepId,function=run)
+sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
+wandb.agent(sweepId,function=run)
 
 run()

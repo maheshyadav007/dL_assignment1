@@ -3,17 +3,7 @@ import wandb
 from keras.datasets import fashion_mnist
 
 
-#NOTE
-#1/N in loss function
-
-
-
-#wandb.init(project="dl_assignment1", entity="-my")
-
-
-
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
-
 classLabels = {"0":"T-shirt/top","1":"Trouser","2":"Pullover","3":"Dress","4":"Coat","5":"Sandal","6":"Shirt","7":"Sneaker","8":"Bag","9":"Ankle boot"}
 
 def outEachClass():
@@ -26,37 +16,29 @@ def outEachClass():
     print(len(data))
     #wandb.log({"Categories": [wandb.Image(image, caption=caption) for image, caption in zip(data,labels)]})
 
+#------setting up input--------
 n,l,w = x_train.shape
 nFeatures = l*w
 X = np.reshape(x_train,(n,l*w,1))/255
 Y = np.reshape(y_train,(n,1))
+#--------------------------------
 
 def initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons):
     n = nFeatures
     for i in range(nHiddenLayers+1):
-        weights.append(np.random.randint(-1,1,(neurons[i],n)))
-        bias.append(np.random.randint(-1,1,(neurons[i],1)))
+        weights.append(np.random.default_rng().uniform(low = -1,high = 1,size = (neurons[i],n)))#rand(neurons[i],n))
+        bias.append(np.random.default_rng().uniform(low = -1, high=1, size=(neurons[i],1)))#rand(neurons[i],1))
         n = neurons[i]
+
 def initializeNN(nHiddenLayers,neurons,outputNeurons): 
     weights = []
     bias = []
-    #nHiddenLayers = 2
-    #neurons = [2, 3]
-    #outputNeurons = 10
     neurons.append(outputNeurons)
     initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons)
-
     return weights, bias
 
-
-
-
-#print(weights)
-#print(bias)
 def preActivate(x,w,b):
-    
-    #out = np.dot(np.transpose(w),x)+b
-    out = np.dot((w),x)+b                       #transpose removed
+    out = np.dot((w),x)+b                       
     return out
 def logisticActivation(parameter):
     out = (1/(1+np.exp(-1*parameter)))
@@ -100,14 +82,10 @@ def backPropagation(a,h,x,y,yHat,weights,nHiddenLayers):
     el[y] = 1
     aLGrad = -(el-yHat)
     for k in range(nHiddenLayers,0,-1):
-        #print(k)
         weightsGrad[k] = (np.dot(aLGrad,np.transpose(h[k-1])))
         biasGrad[k] = (aLGrad)
-        #watch for transpose
-        #a = np.dot(np.transpose(weights[k]),aLGrad)
-        a = np.dot(np.transpose(weights[k]),aLGrad)                         #transpose added
-        aLGrad = np.multiply(a,derivativeActivation("logistic",a[k-1]))
-    #print(aLGrad,x)
+        hk = np.dot(np.transpose(weights[k]),aLGrad)                         #NOTE : hk is really hk-1
+        aLGrad = np.multiply(hk,derivativeActivation("logistic",a[k-1]))          
     weightsGrad[0] = (np.dot(aLGrad,np.transpose(x)))
     biasGrad[0] = (aLGrad)
     return weightsGrad,biasGrad
@@ -120,21 +98,17 @@ def stochasticGradientDescent(batchSize):
     weights, bias = initializeNN(nHiddenLayers,neurons,outputNeurons)
     weightsGrad, biasGrad = 0, 0
     
-
     t = 0
     while t < maxIterations:
         loss = 0
         for x,y in zip(X,Y):
-            #x, y = X[0], Y[0]
             a,h,yHat = feedForwardNN(x,weights,bias)
-            #print(a[0].shape, h[0].shape, yHat.shape)
             loss += computeLoss(yHat,y)
             wGrad, bGrad = backPropagation(a,h,x,y,yHat,weights)
             if t==0:
                 weightsGrad = wGrad
                 biasGrad = bGrad
             else :
-                #print("in lese")
                 weightsGrad += np.array(wGrad)
                 biasGrad += np.array(bGrad)
             
@@ -192,8 +166,8 @@ sweep_config = {
         }
 }
 hyperparameter_defaults = dict(
-    batch_size = 64,
-    learning_rate = 0.001,
+    batch_size = 128,
+    learning_rate = 0.0001,
     epochs = 5,
     n_hidden_layers = 3,
     size_hidden_layers = 32,
@@ -207,8 +181,8 @@ def validate(yHat, y, count):
     return False
 
 def run():
-    
-    wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
+    #wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
+    '''
     config = wandb.config
     nHiddenLayers = config.n_hidden_layers
     neurons = []
@@ -229,16 +203,13 @@ def run():
     epochs = 100
     batchSize = 64
     optimizer = "sgd"
-    '''
     #----------------
     outputNeurons = 10
     lossFunction = "SoftMax"
 
     weights, bias = initializeNN(nHiddenLayers,neurons,outputNeurons)
 
-    
     t = 1
-    
     count = 0
     weightsGrad = [0]*(nHiddenLayers+1)
     biasGrad = [0]*(nHiddenLayers+1)
@@ -258,10 +229,7 @@ def run():
                 Xb = X[startIndex:-1,:]
                 Yb = Y[startIndex:-1,:]
                 notDone = False
-
             startIndex = startIndex+batchSize
-            
-            
             
             for x,y in zip(Xb,Yb):
                 l, wGrad, bGrad, yHat = train(weights,bias,x,y,optimizer,lossFunction,nHiddenLayers)
@@ -274,27 +242,18 @@ def run():
                     biasGrad[0] /= batchSize
                     flag = False
                 else :
-                    #print("in lese")
-                    #weightsGrad += np.array(wGrad)
-                    #biasGrad += np.array(bGrad)
                     weightsGrad = [ w + wG/batchSize  for w, wG in zip(weightsGrad, wGrad)]
                     biasGrad = [ b + bG/batchSize  for b, bG in zip(biasGrad, bGrad)]
-                #weightsGrad += np.array(wGrad)
-                #biasGrad += np.array(bGrad)
                 loss += l
-            #weights = weights - [wGrad * eta for wGrad in weightsGrad]
-            #bias = bias - [bGrad * eta for bGrad in biasGrad]
             weights = [ w - eta*wG  for w, wG in zip(weights,weightsGrad)]
             bias = [ b - eta*bG  for b, bG in zip(bias,biasGrad)]
-            
-                
+
         print("After epoch : ",t,"Loss  = ",loss/60000, " Accuracy : ", count/60000)
-        wandb.log({'epochs':epochs,'loss':loss})
-        wandb.log({"metric":loss })
+        #wandb.log({'epochs':epochs,'loss':loss})
+        #wandb.log({"metric":loss })
         t+=1
 
+#sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
+#wandb.agent(sweepId,function=run)
 
-sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
-wandb.agent(sweepId,function=run)
-
-#run()
+run()

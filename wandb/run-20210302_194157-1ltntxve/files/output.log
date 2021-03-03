@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 254, in <module>
+    run()
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 227, in run
+    l, wGrad, bGrad = train(weights,bias,x,y,optimizer,lossFunction)
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 158, in train
+    wGrad, bGrad = backPropagation(a,h,x,y,yHat,weights,nHiddenLayers)# check y bias is not used
+NameError: name 'nHiddenLayers' is not defined

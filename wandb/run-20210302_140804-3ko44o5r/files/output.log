@@ -1,0 +1,25 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+Create sweep with ID: 9kz72hd2
+Sweep URL: https://wandb.ai/-my/dl_assignment1/sweeps/9kz72hd2
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: l5p50lt8 with config:
+wandb: 	batch_size: 1
+wandb: 	epochs: 5
+wandb: 	learning_rate: 0.0001
+wandb: 	n_hidden_layers: 4
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 64
+d:\IITM\deepLearning\Assignments\assignment1\main.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  import numpy as np
+d:\IITM\deepLearning\Assignments\assignment1\main.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  import numpy as np
+d:\IITM\deepLearning\Assignments\assignment1\main.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  import numpy as np
+d:\IITM\deepLearning\Assignments\assignment1\main.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  import numpy as np
+wandb: ERROR Error while calling W&B API: Error 1040: Too many connections (<Response [500]>)
+wandb: ERROR Error while calling W&B API: Error 1040: Too many connections (<Response [500]>)
+wandb: Network error (HTTPError), entering retry loop. See D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_140804-3ko44o5r\logs\debug-internal.log for full traceback.
+wandb: ERROR Error while calling W&B API: Error 1040: Too many connections (<Response [500]>)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:228: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weights = weights - np.multiply(eta,weightsGrad)

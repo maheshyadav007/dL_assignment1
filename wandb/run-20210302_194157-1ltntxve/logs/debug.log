@@ -1,0 +1,44 @@
+2021-03-02 19:41:57,604 INFO    MainThread:5360 [wandb_setup.py:_flush():69] setting env: {}
+2021-03-02 19:41:57,604 INFO    MainThread:5360 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-02 19:41:57,606 INFO    MainThread:5360 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_194157-1ltntxve\logs\debug.log
+2021-03-02 19:41:57,606 INFO    MainThread:5360 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_194157-1ltntxve\logs\debug-internal.log
+2021-03-02 19:41:57,606 INFO    MainThread:5360 [wandb_init.py:init():352] calling init triggers
+2021-03-02 19:41:57,607 INFO    MainThread:5360 [wandb_init.py:init():359] wandb.init called with sweep_config: {}
+config: {'batch_size': 1, 'learning_rate': 0.001, 'epochs': 5, 'n_hidden_layers': 3, 'size_hidden_layers': 5, 'optimizer': 'sgd'}
+2021-03-02 19:41:57,628 INFO    MainThread:5360 [wandb_init.py:init():401] starting backend
+2021-03-02 19:41:57,629 INFO    MainThread:5360 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-02 19:41:57,651 INFO    MainThread:5360 [backend.py:ensure_launched():123] starting backend process...
+2021-03-02 19:41:57,804 INFO    MainThread:5360 [backend.py:ensure_launched():128] started backend process with pid: 6328
+2021-03-02 19:41:57,804 INFO    MainThread:5360 [wandb_init.py:init():406] backend started and connected
+2021-03-02 19:41:57,804 INFO    MainThread:5360 [wandb_init.py:init():446] updated telemetry
+2021-03-02 19:41:57,804 INFO    MainThread:5360 [wandb_init.py:init():465] communicating current version
+2021-03-02 19:42:00,326 INFO    MainThread:5360 [wandb_init.py:init():470] got version response 
+2021-03-02 19:42:00,326 INFO    MainThread:5360 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-02 19:42:00,912 INFO    MainThread:5360 [wandb_init.py:init():503] starting run threads in backend
+2021-03-02 19:42:03,769 INFO    MainThread:5360 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-02 19:42:03,771 INFO    MainThread:5360 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-02 19:42:03,772 INFO    MainThread:5360 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-02 19:42:03,772 INFO    MainThread:5360 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-02 19:42:03,772 INFO    MainThread:5360 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-02 19:42:03,827 INFO    Dummy-10  :5360 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 1
+2021-03-02 19:42:03,829 INFO    Dummy-10  :5360 [wandb_run.py:_restore():1364] restore
+2021-03-02 19:42:04,582 INFO    Dummy-10  :5360 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 787
+  total_bytes: 787
+}
+
+2021-03-02 19:42:06,686 INFO    Dummy-10  :5360 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 3987
+  total_bytes: 3987
+}
+
+2021-03-02 19:42:08,068 INFO    Dummy-10  :5360 [wandb_run.py:_show_files():1737] logging synced files

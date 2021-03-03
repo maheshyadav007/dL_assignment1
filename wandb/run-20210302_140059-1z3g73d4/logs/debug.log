@@ -1,0 +1,24 @@
+2021-03-02 14:00:59,827 INFO    MainThread:8592 [wandb_setup.py:_flush():69] setting env: {}
+2021-03-02 14:00:59,827 INFO    MainThread:8592 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-02 14:00:59,828 INFO    MainThread:8592 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_140059-1z3g73d4\logs\debug.log
+2021-03-02 14:00:59,829 INFO    MainThread:8592 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_140059-1z3g73d4\logs\debug-internal.log
+2021-03-02 14:00:59,829 INFO    MainThread:8592 [wandb_init.py:init():352] calling init triggers
+2021-03-02 14:00:59,829 INFO    MainThread:8592 [wandb_init.py:init():359] wandb.init called with sweep_config: {}
+config: {'batch_size': 1, 'learning_rate': 0.001, 'epochs': 5, 'n_hidden_layers': 3, 'size_hidden_layers': 32, 'optimizer': 'sgd'}
+2021-03-02 14:00:59,858 INFO    MainThread:8592 [wandb_init.py:init():401] starting backend
+2021-03-02 14:00:59,859 INFO    MainThread:8592 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-02 14:00:59,873 INFO    MainThread:8592 [backend.py:ensure_launched():123] starting backend process...
+2021-03-02 14:01:00,027 INFO    MainThread:8592 [backend.py:ensure_launched():128] started backend process with pid: 7884
+2021-03-02 14:01:00,028 INFO    MainThread:8592 [wandb_init.py:init():406] backend started and connected
+2021-03-02 14:01:00,034 INFO    MainThread:8592 [wandb_init.py:init():446] updated telemetry
+2021-03-02 14:01:00,035 INFO    MainThread:8592 [wandb_init.py:init():465] communicating current version
+2021-03-02 14:01:02,421 INFO    MainThread:8592 [wandb_init.py:init():470] got version response 
+2021-03-02 14:01:02,421 INFO    MainThread:8592 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-02 14:01:03,008 INFO    MainThread:8592 [wandb_init.py:init():503] starting run threads in backend
+2021-03-02 14:01:05,936 INFO    MainThread:8592 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-02 14:01:05,937 INFO    MainThread:8592 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-02 14:01:05,938 INFO    MainThread:8592 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-02 14:01:05,938 INFO    MainThread:8592 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-02 14:01:05,938 INFO    MainThread:8592 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-02 14:01:06,911 INFO    MainThread:8592 [pyagent.py:run():316] Starting sweep agent: entity=None, project=None, count=None
+2021-03-02 14:01:08,395 INFO    Thread-11 :8592 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/1z3g73d4

@@ -1,0 +1,11 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+Create sweep with ID: as2s7iyx
+Sweep URL: https://wandb.ai/-my/dl_assignment1/sweeps/as2s7iyx
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: 2crjd8z6 with config:
+wandb: 	batch_size: 16
+wandb: 	epochs: 10
+wandb: 	learning_rate: 0.001
+wandb: 	n_hidden_layers: 4
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 128

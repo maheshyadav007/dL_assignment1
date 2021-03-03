@@ -1,0 +1,23 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: 8mbkpnco with config:
+wandb: 	batch_size: 64
+wandb: 	epochs: 10
+wandb: 	learning_rate: 0.001
+wandb: 	n_hidden_layers: 4
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 64
+d:\IITM\deepLearning\Assignments\assignment1\main.py:237: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weightsGrad += np.array(wGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:238: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  biasGrad += np.array(bGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:240: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weights = weights - np.multiply(eta,weightsGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:241: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  bias = bias - np.multiply(eta,biasGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:62: RuntimeWarning: overflow encountered in exp
+  out = (1/(1+np.exp(-1*parameter)))
+After epoch :  1 Loss  =  [[138251.83280307]]
+After epoch :  2 Loss  =  [[138134.70924269]]
+After epoch :  3 Loss  =  [[138138.84475238]]
+After epoch :  4 Loss  =  [[138143.44884061]]
+After epoch :  5 Loss  =  [[138148.89277896]]

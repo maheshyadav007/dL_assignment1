@@ -1,0 +1,13 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+Create sweep with ID: baiiw6ao
+Sweep URL: https://wandb.ai/-my/dl_assignment1/sweeps/baiiw6ao
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: jslpojje with config:
+wandb: 	batch_size: 64
+wandb: 	epochs: 5
+wandb: 	learning_rate: 0.0001
+wandb: 	n_hidden_layers: 3
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 64
+d:\IITM\deepLearning\Assignments\assignment1\main.py:228: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weights = weights - np.multiply(eta,weightsGrad)

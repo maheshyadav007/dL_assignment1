@@ -1,0 +1,8 @@
+d:\IITM\deepLearning\Assignments\assignment1\main.py:237: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weightsGrad += np.array(wGrad)
+Traceback (most recent call last):
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 254, in <module>
+    run()
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 237, in run
+    weightsGrad += np.array(wGrad)
+ValueError: operands could not be broadcast together with shapes (0,) (4,) 

@@ -1,0 +1,11 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+Create sweep with ID: bnm4jtri
+Sweep URL: https://wandb.ai/-my/dl_assignment1/sweeps/bnm4jtri
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: q1z6vsbo with config:
+wandb: 	batch_size: 16
+wandb: 	epochs: 10
+wandb: 	learning_rate: 0.001
+wandb: 	n_hidden_layers: 5
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 64

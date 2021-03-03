@@ -1,0 +1,61 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: ERROR Error while calling W&B API: permission denied (<Response [403]>)
+wandb: ERROR permission denied
+Traceback (most recent call last):
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\old\retry.py", line 96, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 129, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\six.py", line 703, in reraise
+    raise value
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 123, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\transport\requests.py", line 39, in execute
+    request.raise_for_status()
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1410, in upsert_sweep
+    raise (e)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1407, in upsert_sweep
+    check_retry_fn=no_retry_4xx,
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\old\retry.py", line 105, in __call__
+    if not check_retry_fn(e):
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1392, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.error.UsageError: permission denied
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 30, in <module>
+    sweepId = wandb.sweep(sweep_config,entity = "sweep",project = "dl_assignment1")
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\wandb_controller.py", line 757, in sweep
+    sweep_id = api.upsert_sweep(sweep)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\apis\internal.py", line 89, in upsert_sweep
+    return self.api.upsert_sweep(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\apis\normalize.py", line 62, in wrapper
+    six.reraise(CommError, CommError(message, err), sys.exc_info()[2])
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\six.py", line 702, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1410, in upsert_sweep
+    raise (e)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1407, in upsert_sweep
+    check_retry_fn=no_retry_4xx,
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\old\retry.py", line 105, in __call__
+    if not check_retry_fn(e):
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1392, in no_retry_4xx
+    raise UsageError(body["errors"][0]["message"])
+wandb.errors.error.CommError: permission denied

@@ -1,0 +1,31 @@
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+Create sweep with ID: lk5m71y1
+Sweep URL: https://wandb.ai/-my/dl_assignment1/sweeps/lk5m71y1
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: Agent Starting Run: zx2jmzhl with config:
+wandb: 	batch_size: 64
+wandb: 	epochs: 10
+wandb: 	learning_rate: 0.001
+wandb: 	n_hidden_layers: 3
+wandb: 	optimizer: sgd
+wandb: 	size_hidden_layers: 32
+d:\IITM\deepLearning\Assignments\assignment1\main.py:253: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weightsGrad += np.array(wGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:254: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  biasGrad += np.array(bGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:256: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weights = weights - np.multiply(eta,weightsGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:257: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  bias = bias - np.multiply(eta,biasGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:62: RuntimeWarning: overflow encountered in exp
+  out = (1/(1+np.exp(-1*parameter)))
+After epoch :  1 Loss  =  [[138882.24875038]]
+After epoch :  2 Loss  =  [[138690.6652896]]
+After epoch :  3 Loss  =  [[138626.27176717]]
+After epoch :  4 Loss  =  [[138597.31501178]]
+After epoch :  5 Loss  =  [[138581.93909019]]
+After epoch :  6 Loss  =  [[138574.8825546]]
+After epoch :  7 Loss  =  [[138572.90219545]]
+After epoch :  8 Loss  =  [[138565.62951223]]
+After epoch :  9 Loss  =  [[138550.58889169]]
+After epoch :  10 Loss  =  [[138533.31709206]]

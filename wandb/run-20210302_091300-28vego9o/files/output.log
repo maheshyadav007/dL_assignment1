@@ -1,0 +1,74 @@
+[[195521.59483432]]
+d:\IITM\deepLearning\Assignments\assignment1\main.py:151: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weights = weights - np.multiply(eta,weightsGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:152: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  bias = bias - np.multiply(eta,biasGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:145: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  weightsGrad += np.array(wGrad)
+d:\IITM\deepLearning\Assignments\assignment1\main.py:146: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  biasGrad += np.array(bGrad)
+[[195463.36626891]]
+d:\IITM\deepLearning\Assignments\assignment1\main.py:68: RuntimeWarning: overflow encountered in exp
+  out = (1/(1+np.exp(-1*parameter)))
+[[1057208.03996099]]
+[[1627751.52038922]]
+[[1434845.9958227]]
+[[710790.15531319]]
+[[379873.60688362]]
+[[354301.84022359]]
+[[377887.69335209]]
+[[369314.9512999]]
+[[407455.14379463]]
+[[455503.76031163]]
+[[365273.78084224]]
+[[374642.75769903]]
+[[368125.44080102]]
+[[338979.24639953]]
+[[298366.10444227]]
+[[227903.55886647]]
+[[301393.68630331]]
+[[429253.61470328]]
+[[425043.0573081]]
+[[373323.18924305]]
+[[362826.72563826]]
+[[410307.07475899]]
+[[342432.44744336]]
+[[325592.31111149]]
+[[316780.88159899]]
+[[328000.63185949]]
+[[332759.75643524]]
+[[370955.08338729]]
+[[381271.42018999]]
+[[384689.42958085]]
+[[837753.96039574]]
+[[2250351.07185881]]
+[[513979.4770707]]
+[[430611.12236563]]
+[[402058.10339807]]
+[[1542174.22817525]]
+[[2213718.54068626]]
+[[1733868.95668802]]
+[[1693886.35636406]]
+[[1689917.39861187]]
+[[1823149.85607303]]
+[[1835156.46613479]]
+[[1579523.71200593]]
+[[1498200.89578409]]
+[[1422371.67686575]]
+[[1153702.09902566]]
+[[5879992.78991414]]
+[[6648613.47500768]]
+[[6672375.44610788]]
+[[6372072.60486633]]
+[[6632055.75030842]]
+[[6956126.87787513]]
+[[6927968.08861648]]
+Traceback (most recent call last):
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 156, in <module>
+    weightsGrad = wGrad
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 136, in gradientDescent
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 84, in feedForwardNN
+    return out
+  File "d:\IITM\deepLearning\Assignments\assignment1\main.py", line 65, in preActivate
+    neurons.append(outputNeurons)
+KeyboardInterrupt

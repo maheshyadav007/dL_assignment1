@@ -1,0 +1,85 @@
+2021-03-02 14:08:04,652 INFO    MainThread:10272 [wandb_setup.py:_flush():69] setting env: {}
+2021-03-02 14:08:04,653 INFO    MainThread:10272 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-02 14:08:04,653 INFO    MainThread:10272 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_140804-3ko44o5r\logs\debug.log
+2021-03-02 14:08:04,654 INFO    MainThread:10272 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_140804-3ko44o5r\logs\debug-internal.log
+2021-03-02 14:08:04,655 INFO    MainThread:10272 [wandb_init.py:init():352] calling init triggers
+2021-03-02 14:08:04,656 INFO    MainThread:10272 [wandb_init.py:init():359] wandb.init called with sweep_config: {}
+config: {'batch_size': 1, 'learning_rate': 0.001, 'epochs': 5, 'n_hidden_layers': 3, 'size_hidden_layers': 32, 'optimizer': 'sgd'}
+2021-03-02 14:08:04,659 INFO    MainThread:10272 [wandb_init.py:init():401] starting backend
+2021-03-02 14:08:04,659 INFO    MainThread:10272 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-02 14:08:04,680 INFO    MainThread:10272 [backend.py:ensure_launched():123] starting backend process...
+2021-03-02 14:08:05,750 INFO    MainThread:10272 [backend.py:ensure_launched():128] started backend process with pid: 3192
+2021-03-02 14:08:05,753 INFO    MainThread:10272 [wandb_init.py:init():406] backend started and connected
+2021-03-02 14:08:05,768 INFO    MainThread:10272 [wandb_init.py:init():446] updated telemetry
+2021-03-02 14:08:05,771 INFO    MainThread:10272 [wandb_init.py:init():465] communicating current version
+2021-03-02 14:08:08,829 INFO    MainThread:10272 [wandb_init.py:init():470] got version response 
+2021-03-02 14:08:08,830 INFO    MainThread:10272 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-02 14:08:09,440 INFO    MainThread:10272 [wandb_init.py:init():503] starting run threads in backend
+2021-03-02 14:08:14,180 INFO    MainThread:10272 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-02 14:08:14,183 INFO    MainThread:10272 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-02 14:08:14,189 INFO    MainThread:10272 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-02 14:08:14,190 INFO    MainThread:10272 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-02 14:08:14,190 INFO    MainThread:10272 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-02 14:08:15,445 INFO    MainThread:10272 [pyagent.py:run():316] Starting sweep agent: entity=None, project=None, count=None
+2021-03-02 14:10:25,917 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 502 response executing GraphQL.
+2021-03-02 14:10:25,918 ERROR   Thread-16 :10272 [internal_api.py:execute():127] 
+<html><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>502 Server Error</title>
+</head>
+<body text=#000000 bgcolor=#ffffff>
+<h1>Error: Server Error</h1>
+<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>
+<h2></h2>
+</body></html>
+
+2021-03-02 14:10:57,561 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 502 response executing GraphQL.
+2021-03-02 14:10:57,561 ERROR   Thread-16 :10272 [internal_api.py:execute():127] 
+<html><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>502 Server Error</title>
+</head>
+<body text=#000000 bgcolor=#ffffff>
+<h1>Error: Server Error</h1>
+<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>
+<h2></h2>
+</body></html>
+
+2021-03-02 14:13:00,522 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:00,523 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"errors":[{"message":"Error 1040: Too many connections","path":["agentHeartbeat"]}],"data":{"agentHeartbeat":null}}
+2021-03-02 14:13:01,955 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:01,956 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"error":"Error 1040: Too many connections"}
+
+2021-03-02 14:13:04,861 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:04,861 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"errors":[{"message":"Error 1040: Too many connections","path":["agentHeartbeat"]}],"data":{"agentHeartbeat":null}}
+2021-03-02 14:13:04,863 ERROR   Thread-16 :10272 [retry.py:__call__():111] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\old\retry.py", line 96, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 129, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\six.py", line 703, in reraise
+    raise value
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\sdk\internal\internal_api.py", line 123, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\wandb\vendor\gql-0.2.0\gql\transport\requests.py", line 39, in execute
+    request.raise_for_status()
+  File "C:\Users\MY\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://api.wandb.ai/graphql
+2021-03-02 14:13:09,781 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:09,782 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"error":"Error 1040: Too many connections"}
+
+2021-03-02 14:13:23,120 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:23,121 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"errors":[{"message":"Error 1040: Too many connections","path":["agentHeartbeat"]}],"data":{"agentHeartbeat":null}}
+2021-03-02 14:13:41,491 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:13:41,491 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"error":"Error 1040: Too many connections"}
+
+2021-03-02 14:14:15,654 ERROR   Thread-16 :10272 [internal_api.py:execute():126] 500 response executing GraphQL.
+2021-03-02 14:14:15,655 ERROR   Thread-16 :10272 [internal_api.py:execute():127] {"error":"Error 1040: Too many connections"}
+
+2021-03-02 14:14:55,912 INFO    Thread-17 :10272 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/3ko44o5r

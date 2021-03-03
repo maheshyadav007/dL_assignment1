@@ -1,0 +1,24 @@
+2021-03-02 21:35:41,633 INFO    Thread-20 :9780 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'iwn6nwa1', 'run_id': 'kcnzk2kq', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-iwn6nwa1\\config-kcnzk2kq.yaml'}
+2021-03-02 21:35:41,634 INFO    Thread-20 :9780 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-02 21:35:41,634 INFO    Thread-20 :9780 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_213541-kcnzk2kq\logs\debug.log
+2021-03-02 21:35:41,635 INFO    Thread-20 :9780 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210302_213541-kcnzk2kq\logs\debug-internal.log
+2021-03-02 21:35:41,635 INFO    Thread-20 :9780 [wandb_init.py:init():352] calling init triggers
+2021-03-02 21:35:41,635 INFO    Thread-20 :9780 [wandb_init.py:init():359] wandb.init called with sweep_config: {'batch_size': 64, 'epochs': 10, 'learning_rate': 0.001, 'n_hidden_layers': 3, 'optimizer': 'sgd', 'size_hidden_layers': 32}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 5, 'n_hidden_layers': 3, 'size_hidden_layers': 32, 'optimizer': 'sgd'}
+2021-03-02 21:35:41,636 INFO    Thread-20 :9780 [wandb_init.py:init():401] starting backend
+2021-03-02 21:35:41,636 INFO    Thread-20 :9780 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-02 21:35:41,645 INFO    Thread-20 :9780 [backend.py:ensure_launched():123] starting backend process...
+2021-03-02 21:35:41,811 INFO    Thread-20 :9780 [backend.py:ensure_launched():128] started backend process with pid: 7204
+2021-03-02 21:35:41,812 INFO    Thread-20 :9780 [wandb_init.py:init():406] backend started and connected
+2021-03-02 21:35:41,820 INFO    Thread-20 :9780 [wandb_run.py:_config_callback():669] config_cb None None {'batch_size': 64, 'epochs': 10, 'learning_rate': 0.001, 'n_hidden_layers': 3, 'optimizer': 'sgd', 'size_hidden_layers': 32}
+2021-03-02 21:35:41,822 INFO    Thread-20 :9780 [wandb_init.py:init():446] updated telemetry
+2021-03-02 21:35:41,823 INFO    Thread-20 :9780 [wandb_init.py:init():465] communicating current version
+2021-03-02 21:35:46,012 INFO    Thread-20 :9780 [wandb_init.py:init():470] got version response 
+2021-03-02 21:35:46,012 INFO    Thread-20 :9780 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-02 21:35:46,675 INFO    Thread-20 :9780 [wandb_init.py:init():503] starting run threads in backend
+2021-03-02 21:35:50,969 INFO    Thread-20 :9780 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-02 21:35:50,971 INFO    Thread-20 :9780 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-02 21:35:50,971 INFO    Thread-20 :9780 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-02 21:35:50,971 INFO    Thread-20 :9780 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-02 21:35:50,972 INFO    Thread-20 :9780 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-02 21:43:14,346 INFO    Thread-20 :9780 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/kcnzk2kq

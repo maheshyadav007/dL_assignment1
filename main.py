@@ -38,8 +38,12 @@ def outEachClass():
 
 n,l,w = x_train.shape
 nFeatures = l*w
-X = np.reshape(x_train,(n,l*w,1))/255
-Y = np.reshape(y_train,(n,1))
+nTrain = int(.9*n)
+
+x_train, y_train = np.reshape(x_train,(n,l*w,1))/255 , np.reshape(y_train,(n,1))
+X, Y = x_train[0:nTrain,:], y_train[0:nTrain,:]
+XVal, YVal = x_train[nTrain:n-1,:], y_train[nTrain:n-1,:]
+n = nTrain
 weights = []
 biases = []
 nHiddenLayers = 0
@@ -88,8 +92,6 @@ def feedForwardNN(x,weights,bias):
     output = softmaxActivation(pA)
     return a,h,output
 
-
-
 def computeSoftMaxLoss(yHat,y):
     return -1* np.log(yHat[y])
 
@@ -115,87 +117,19 @@ def backPropagation(a,h,x,y,yHat,weights,nHiddenLayers):
     biasGrad[0] = (aLGrad)
     return weightsGrad,biasGrad
 
-
-def stochasticGradientDescent(batchSize):
-    
-    eta = config.learning_rate
-    maxIterations = config.epochs
-    weights, bias = initializeNN(nHiddenLayers,neurons,outputNeurons)
-    weightsGrad, biasGrad = 0, 0
-    t = 0
-    while t < maxIterations:
-        loss = 0
-        for x,y in zip(X,Y):
-            a,h,yHat = feedForwardNN(x,weights,bias)
-            loss += computeLoss(yHat,y)
-            wGrad, bGrad = backPropagation(a,h,x,y,yHat,weights)
-            if t==0:
-                weightsGrad = wGrad
-                biasGrad = bGrad
-            else :
-                weightsGrad += np.array(wGrad)
-                biasGrad += np.array(bGrad)
-
-        print(loss)
-        wandb.log({'loss':loss})
-        #print(weights, weightsGrad)
-        weights = weights - np.multiply(eta,weightsGrad)
-        bias = bias - np.multiply(eta,biasGrad)
-
-        t+=1
-
-
-
-
-
-sweep_config = {
-    'name' : 'Working sweep',
-    "method": "grid",
-    'metric': { 
-        'name':'loss',
-        'goal': 'minimize',
-        },
-    'parameters':{
-        'learning_rate': {'values' : [.001, 0.0001]},
-        'epochs' : {'values' : [5,10]},
-        'optimizer':{'values' : ['sgd','mgd']},
-        'n_hidden_layers' : {'values' : [3,4,5]},
-        'size_hidden_layers' : {'values' : [32,64,128]},
-        'batch_size' : {'values': [16,32,64]}
-        }
-}
-'''
-sweep_config = {
-    'name' : 'MY new sweep',
-    "method": "grid",
-    'metric': { 
-        'name':'loss',
-        'goal': 'minimize',
-        },
-    'parameters':{
-        'learning_rate': {'values' : [.001, 0.0001]},
-        'epochs' : {'values' : [5,10]},
-        'optimizer':{'values' : ['sgd']},
-        'n_hidden_layers' : {'values' : [3]},
-        'size_hidden_layers' : {'values' : [32]},
-        'batch_size' : {'values': [64]}
-        }
-}
-'''
-hyperparameter_defaults = dict(
-    batch_size = 128,
-    learning_rate = 0.0001,
-    epochs = 5,
-    n_hidden_layers = 3,
-    size_hidden_layers = 32,
-    optimizer = "sgd"
-    )
-
-
 def validate(yHat, y):
     if np.argmax(yHat) == y[0]:
         return True
     return False
+def predict(X,Y,neuralNet):
+    nCorrectPredictions = 0
+    loss = 0
+    for x, y in zip(X,Y):
+        _, _, yHat = feedForwardNN(x,neuralNet.weights,neuralNet.bias)
+        loss += computeSoftMaxLoss(yHat,y)
+        if validate(yHat,y):
+            nCorrectPredictions += 1
+    return loss[0]/X.shape[0], nCorrectPredictions/X.shape[0]
 
 def getNextBatch(batchSize,startIndex,notDone):
     Xb,Yb = [], []
@@ -241,47 +175,31 @@ def train(neuralNet,batchSize,optimizer,lossFunction,eta):
     nHiddenLayers = neuralNet.nHiddenLayers
     startIndex = 0
     notDone = True
-    #weightsGrad = [0]*( (nHiddenLayers )+ 1)
-    #biasGrad = [0]*( nHiddenLayers+1)
+    
     loss = 0
     nCorrectPredictions = 0
-    #updateWeights = [0]*( nHiddenLayers+1)
-    #updateBias = [0]*( nHiddenLayers+1)
+    
     while notDone:
         startIndex,notDone,weightsGrad,biasGrad,nCorrect,l = subRoutine(neuralNet,neuralNet.weights,neuralNet.bias,batchSize,startIndex,notDone,lossFunction)
         nCorrectPredictions += nCorrect
         loss += l
-            #loss += l
-
-        #global weights = [ w - eta*wG  for w, wG in zip(global weights,weightsGrad)]
-        #global bias = [ b - eta*bG  for b, bG in zip(global bias,biasGrad)]
+    
         if optimizer == "sgd":
-            #stochasticGradientDescent(neuralNet,weightsGrad,biasGrad,eta)
             Optimizers.SGD(neuralNet,weightsGrad,biasGrad,eta)
         elif optimizer == "mgd":
-            #momentumGradientDescent(neuralNet,weightsGrad,biasGrad)
             Optimizers.MGD(neuralNet,weightsGrad,biasGrad,eta)
-            #momentumGradientDescent()
         elif optimizer == "nagd":
             if notDone:
                 param = (batchSize,startIndex,notDone,lossFunction)
                 Optimizers.NAGD(neuralNet,weightsGrad,biasGrad,eta,param)
+        elif optimizer == "rmsprop":
+            Optimizers.RMSProp(neuralNet,weightsGrad,biasGrad,eta)
+        elif optimizer == "adam":
+            Optimizers.Adam(neuralNet,weightsGrad,biasGrad,eta)
 
     return loss/ n, nCorrectPredictions/ n
 
-            
-'''
-def stochasticGradientDescent(neuralNet,weightsGrad,biasGrad,eta):
-    neuralNet.weights = [ w - eta*wG  for w, wG in zip( neuralNet.weights,weightsGrad)]
-    neuralNet.bias = [ b - eta*bG  for b, bG in zip( neuralNet.bias,biasGrad)]
 
-def momentumGradientDescent(neuralNet,weightsGrad,biasGrad,eta):
-    gamma = 0.9
-    updateWeights = [gamma*u + eta*wG/ n  for wG, u in zip(weightsGrad,updateWeights)]
-    updateBias = [gamma*u + eta*bG/ n  for bG, u in zip(biasGrad,updateBias)]
-    neuralNet.weights = [ w - u  for w, u in zip( neuralNet.weights,updateWeights)]
-    neuralNet.bias = [ b - u  for b, u in zip( neuralNet.bias,updateBias)]
-'''
 class Optimizers:
     #SGD
     def SGD(neuralNet,weightsGrad,biasGrad,eta):
@@ -317,17 +235,77 @@ class Optimizers:
         neuralNet.weights = [ w - u  for w, u in zip( neuralNet.weights,Optimizers.updateWeights)]
         neuralNet.bias = [ b - u  for b, u in zip( neuralNet.bias,Optimizers.updateBias)]
 
+    #RMSProp
+    #updateWeights = [0]*( NeuralNet.nHiddenLayers+1)
+    #updateBias = [0]*( NeuralNet.nHiddenLayers+1)
+    beta = 0.9
+    eps = 1e-8
+    def RMSProp(neuralNet,weightsGrad,biasGrad,eta):
+        Optimizers.updateWeights = [Optimizers.beta*u + (1-Optimizers.beta)*(wG**2) for wG, u in zip(weightsGrad,Optimizers.updateWeights)]
+        Optimizers.updateBias = [Optimizers.beta*u + (1-Optimizers.beta)*(bG**2)  for bG, u in zip(biasGrad,Optimizers.updateBias)]
+        neuralNet.weights = [ w - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),wG)  for w,wG, u in zip( neuralNet.weights,weightsGrad,Optimizers.updateWeights)]
+        neuralNet.bias = [ b - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),bG)  for b,bG, u in zip( neuralNet.bias,biasGrad,Optimizers.updateBias)]
+    
+    #Adam
+    beta1, beta2, eps = 0.9, 0.999, 1e-8
+    mW = [0]*( NeuralNet.nHiddenLayers+1)
+    mB = [0]*( NeuralNet.nHiddenLayers+1)
+    uW = [0]*( NeuralNet.nHiddenLayers+1)
+    uB = [0]*( NeuralNet.nHiddenLayers+1)
+    def Adam(neuralNet,weightsGrad,biasGrad,eta):
+        Optimizers.mW = [Optimizers.beta1*u + (1-Optimizers.beta1)*(wG) for wG, u in zip(weightsGrad,Optimizers.mW)]
+        Optimizers.mB = [Optimizers.beta1*u + (1-Optimizers.beta1)*(bG) for bG, u in zip(biasGrad,Optimizers.mB)]
+        Optimizers.uW = [Optimizers.beta2*u + (1-Optimizers.beta2)*(wG**2) for wG, u in zip(weightsGrad,Optimizers.uW)]
+        Optimizers.uB = [Optimizers.beta2*u + (1-Optimizers.beta2)*(bG**2) for bG, u in zip(biasGrad,Optimizers.uB)]
+
+        mWHat = [m/(1-Optimizers.beta1) for m in Optimizers.mW]
+        mBHat = [m/(1-Optimizers.beta1) for m in Optimizers.mB]
+        uWHat = [u/(1-Optimizers.beta2) for u in Optimizers.uW]
+        uBHat = [u/(1-Optimizers.beta2) for u in Optimizers.uB]
+        neuralNet.weights = [ w - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),m)  for w,m, u in zip( neuralNet.weights,mWHat,uWHat)]
+        neuralNet.bias = [ b - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),m)  for b,m, u in zip( neuralNet.bias,mBHat,uBHat)]
+    
     #init    
     def __init__(self):
         Optimizers.updateWeights = [0]*( NeuralNet.nHiddenLayers+1)
         Optimizers.updateBias = [0]*( NeuralNet.nHiddenLayers+1)
+        Optimizers.mW = [0]*( NeuralNet.nHiddenLayers+1)
+        Optimizers.mB = [0]*( NeuralNet.nHiddenLayers+1)
+        Optimizers.uW = [0]*( NeuralNet.nHiddenLayers+1)
+        Optimizers.uB = [0]*( NeuralNet.nHiddenLayers+1)
 
 
 
 
+
+sweep_config = {
+    'name' : 'Working sweep',
+    "method": "grid",
+    'metric': { 
+        'name':'loss',
+        'goal': 'minimize',
+        },
+    'parameters':{
+        'learning_rate': {'values' : [.001, 0.0001]},
+        'epochs' : {'values' : [10]},
+        'optimizer':{'values' : ['nagd','rmsprop','adam']},
+        'n_hidden_layers' : {'values' : [3,4,5]},
+        'size_hidden_layers' : {'values' : [32,64,128]},
+        'batch_size' : {'values': [16,32,64]}
+        }
+}
+
+hyperparameter_defaults = dict(
+    batch_size = 64,
+    learning_rate = 0.001,
+    epochs = 10,
+    n_hidden_layers = 4,
+    size_hidden_layers = 64,
+    optimizer = "adam"
+    )
 
 def run():
-    '''
+    
     wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
     
     config = wandb.config
@@ -340,8 +318,6 @@ def run():
     batchSize = config.batch_size
     optimizer = config.optimizer
 
-    global nHiddenLayers = nHiddenLayers
-    global neurons = neurons
     '''
     #----------
     nHiddenLayers = 3
@@ -351,7 +327,8 @@ def run():
     eta = 0.001
     epochs = 10
     batchSize = 64
-    optimizer = "nagd"
+    optimizer = "adam"
+    '''
     #----------------
 
     outputNeurons = 10
@@ -362,14 +339,15 @@ def run():
     Optimizers()
     t = 1
     while t <= epochs:
-        loss, accuracy = train(neuralNet, batchSize,optimizer,lossFunction,eta)     
-        print("After epoch : ",t,"Loss  = ",loss, " Accuracy : ", accuracy)
-        #wandb.log({'epoch':epochs,'Loss':loss, "Accuracy":accuracy})
-        #wandb.log({"metric":loss })
+        loss, accuracy = train(neuralNet, batchSize,optimizer,lossFunction,eta)  
+        valLoss, valAccuracy = predict(XVal,YVal,neuralNet)   
+        print("Epoch : ",t,"Loss  = ",loss, " Accuracy : ", accuracy,"Val Loss  = ",valLoss, "Val Accuracy : ", valAccuracy)
+        wandb.log({'epoch':t,'Loss':loss, "Accuracy":accuracy,'Val_Loss':valLoss, "Val_Accuracy":valAccuracy})
+        wandb.log({"metric":valLoss })
         t+=1
 
-#sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
-#wandb.agent(sweepId,function=run)
+sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
+wandb.agent(sweepId,function=run)
 
-run()
+#run()
 

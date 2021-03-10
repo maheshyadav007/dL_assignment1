@@ -1,0 +1,18 @@
+wandb_version: 1
+
+batch_size:
+  value: 32
+epochs:
+  value: 10
+hidden_Layer_AF:
+  value: sigmoid
+learning_rate:
+  value: 0.001
+loss_func:
+  value: mse
+n_hidden_layers:
+  value: 4
+optimizer:
+  value: nagd
+size_hidden_layers:
+  value: 32

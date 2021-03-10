@@ -1,0 +1,25 @@
+2021-03-08 13:13:36,989 INFO    Thread-260:1676 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'qfwhwr77', 'run_id': '0spumu6q', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-qfwhwr77\\config-0spumu6q.yaml'}
+2021-03-08 13:13:36,990 INFO    Thread-260:1676 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-08 13:13:36,991 INFO    Thread-260:1676 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210308_131336-0spumu6q\logs\debug.log
+2021-03-08 13:13:36,991 INFO    Thread-260:1676 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210308_131336-0spumu6q\logs\debug-internal.log
+2021-03-08 13:13:36,994 INFO    Thread-260:1676 [wandb_init.py:init():352] calling init triggers
+2021-03-08 13:13:36,994 INFO    Thread-260:1676 [wandb_init.py:init():359] wandb.init called with sweep_config: {'batch_size': 32, 'epochs': 10, 'learning_rate': 0.001, 'n_hidden_layers': 3, 'optimizer': 'adam', 'size_hidden_layers': 64}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 10, 'n_hidden_layers': 4, 'size_hidden_layers': 64, 'optimizer': 'adam'}
+2021-03-08 13:13:36,996 INFO    Thread-260:1676 [wandb_init.py:init():401] starting backend
+2021-03-08 13:13:36,996 INFO    Thread-260:1676 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-08 13:13:37,012 INFO    Thread-260:1676 [backend.py:ensure_launched():123] starting backend process...
+2021-03-08 13:13:37,153 INFO    Thread-260:1676 [backend.py:ensure_launched():128] started backend process with pid: 3936
+2021-03-08 13:13:37,154 INFO    Thread-260:1676 [wandb_init.py:init():406] backend started and connected
+2021-03-08 13:13:37,159 INFO    Thread-260:1676 [wandb_run.py:_config_callback():669] config_cb None None {'batch_size': 32, 'epochs': 10, 'learning_rate': 0.001, 'n_hidden_layers': 3, 'optimizer': 'adam', 'size_hidden_layers': 64}
+2021-03-08 13:13:37,160 INFO    Thread-260:1676 [wandb_init.py:init():446] updated telemetry
+2021-03-08 13:13:37,161 INFO    Thread-260:1676 [wandb_init.py:init():465] communicating current version
+2021-03-08 13:13:39,445 INFO    Thread-260:1676 [wandb_init.py:init():470] got version response upgrade_message: "wandb version 0.10.21 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2021-03-08 13:13:39,447 INFO    Thread-260:1676 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-08 13:13:40,006 INFO    Thread-260:1676 [wandb_init.py:init():503] starting run threads in backend
+2021-03-08 13:13:43,076 INFO    Thread-260:1676 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-08 13:13:43,078 INFO    Thread-260:1676 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-08 13:13:43,079 INFO    Thread-260:1676 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-08 13:13:43,079 INFO    Thread-260:1676 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-08 13:13:43,079 INFO    Thread-260:1676 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-08 13:23:14,688 INFO    Thread-260:1676 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/0spumu6q

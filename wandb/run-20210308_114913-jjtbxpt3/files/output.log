@@ -1,0 +1,4 @@
+Epoch :  1 Loss  =  [[1.91810735]]  Accuracy :  0.4050740740740741 Val Loss  =  [1.42238778] Val Accuracy :  0.542757126187698
+Epoch :  2 Loss  =  [[1.25896021]]  Accuracy :  0.5960555555555556 Val Loss  =  [1.13660302] Val Accuracy :  0.6272712118686448
+Epoch :  3 Loss  =  [[1.05874741]]  Accuracy :  0.6496296296296297 Val Loss  =  [0.99587046] Val Accuracy :  0.6697782963827305
+Epoch :  4 Loss  =  [[0.94992171]]  Accuracy :  0.6802592592592592 Val Loss  =  [0.9117722] Val Accuracy :  0.6956159359893316

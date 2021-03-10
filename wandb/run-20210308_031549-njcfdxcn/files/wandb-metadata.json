@@ -1,0 +1,22 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.6.3",
+    "heartbeatAt": "2021-03-07T21:45:54.968234",
+    "startedAt": "2021-03-07T21:45:49.116142",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "codePath": "main.py",
+    "program": "d:\\IITM\\deepLearning\\Assignments\\assignment1\\main.py",
+    "git": {
+        "remote": "https://github.com/maheshyadav007/dL_assignment1.git",
+        "commit": "44ba361bc7ee7d5c586175d4825947a81fe57970"
+    },
+    "email": "maheshyadavindian@gmail.com",
+    "root": "D:/IITM/deepLearning/Assignments/assignment1",
+    "host": "DESKTOP-ROKMKKK",
+    "username": "MY",
+    "executable": "C:\\Users\\MY\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+}

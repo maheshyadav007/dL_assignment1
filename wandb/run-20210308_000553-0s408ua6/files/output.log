@@ -1,3 +1,10 @@
 Epoch :  1 Loss  =  [[1.79372635]]  Accuracy :  0.4340925925925926 Val Loss  =  [1.30976815] Val Accuracy :  0.5819303217202867
 Epoch :  2 Loss  =  [[1.11059468]]  Accuracy :  0.6277037037037037 Val Loss  =  [0.9641684] Val Accuracy :  0.669111518586431
 Epoch :  3 Loss  =  [[0.89963953]]  Accuracy :  0.6801111111111111 Val Loss  =  [0.83125385] Val Accuracy :  0.7054509084847475
+Epoch :  4 Loss  =  [[0.80097943]]  Accuracy :  0.7108333333333333 Val Loss  =  [0.75805591] Val Accuracy :  0.7271211868644775
+Epoch :  5 Loss  =  [[0.74079414]]  Accuracy :  0.729462962962963 Val Loss  =  [0.71033588] Val Accuracy :  0.7399566594432405
+Epoch :  6 Loss  =  [[0.69858172]]  Accuracy :  0.7447592592592592 Val Loss  =  [0.67534457] Val Accuracy :  0.7542923820636773
+Epoch :  7 Loss  =  [[0.66575296]]  Accuracy :  0.757462962962963 Val Loss  =  [0.64738207] Val Accuracy :  0.7637939656609435
+Epoch :  8 Loss  =  [[0.63883369]]  Accuracy :  0.7697222222222222 Val Loss  =  [0.62417065] Val Accuracy :  0.7716286047674612
+Epoch :  9 Loss  =  [[0.61638601]]  Accuracy :  0.7793148148148148 Val Loss  =  [0.604955] Val Accuracy :  0.7809634939156526
+Epoch :  10 Loss  =  [[0.597609]]  Accuracy :  0.7869259259259259 Val Loss  =  [0.58895185] Val Accuracy :  0.7874645774295715

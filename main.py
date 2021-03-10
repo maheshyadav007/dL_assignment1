@@ -1,5 +1,6 @@
 import numpy as np
 import wandb
+import tensorflow as tf
 from keras.datasets import fashion_mnist
 
 
@@ -12,12 +13,15 @@ class NeuralNet:
         cls.nHiddenLayers = (nHiddenLayers)
     def __init__(self):
         pass
-    def __init__(self, nHiddenLayers,neurons,weights ,bias):
+    def __init__(self, nHiddenLayers,neurons,weights ,bias,hLActivationFunc,outputActivationFunc,lossFunc):
         self.nHiddenLayers = nHiddenLayers
         NeuralNet.update(nHiddenLayers)
         self.neurons = neurons
         self.weights = weights
         self.bias = bias
+        self.hLActivationFunc = hLActivationFunc
+        self.outputActivationFunc = outputActivationFunc
+        self.lossFunc = lossFunc
     
 
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
@@ -52,67 +56,112 @@ neurons = []
 
 #--------------------------------
 
-def initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons):
+def initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons,initializer):
     n = nFeatures
+    initi = tf.keras.initializers.GlorotNormal()
     for i in range(nHiddenLayers+1):
-        weights.append(np.random.default_rng().uniform(low = -1,high = 1,size = (neurons[i],n)))#rand(neurons[i],n))
-        bias.append(np.random.default_rng().uniform(low = -1, high=1, size=(neurons[i],1)))#rand(neurons[i],1))
-        n = neurons[i]
+        if initializer == 'random':
+            weights.append(np.random.default_rng().uniform(low = -1,high = 1,size = (neurons[i],n)))#rand(neurons[i],n))
+            bias.append(np.random.default_rng().uniform(low = -1, high=1, size=(neurons[i],1)))#rand(neurons[i],1))
+            n = neurons[i]
+        elif initializer == "xavier":
+            '''
+            std = 2/(n + neurons[i])
+            weights.append(np.random.default_rng().normal(loc = 0,scale = std,size = (neurons[i],n)))#rand(neurons[i],n))
+            bias.append(np.random.default_rng().normal(low = 0, scale = std, size=(neurons[i],1)))#rand(neurons[i],1))
+            n = neurons[i]
+            '''
+            values = initi(shape=(neurons[i],n))
+            weights.append(values)
+            values = initi(shape=(neurons[i],1))
+            bias.append(values)
+            n = neurons[i]
 
-def initializeNN(nHiddenLayers,neurons,outputNeurons): 
+def initializeNN(nHiddenLayers,neurons,outputNeurons,initializer): 
     weights = []
     bias = []
     neurons.append(outputNeurons)
-    initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons)
+    initializeParams(nFeatures,weights,bias,nHiddenLayers,neurons,initializer)
     return weights, bias
 
 def preActivate(x,w,b):
     out = np.dot((w),x)+b                       
     return out
-def logisticActivation(parameter):
-    out = (1/(1+np.exp(-1*parameter)))
+def activation(activationFunction,parameter):
+    out = 0
+    if activationFunction == "sigmoid" :
+        out = (1/(1+np.exp(-1*parameter)))
+    elif activationFunction == "tanh":
+        eP ,eN = np.exp(parameter), np.exp(-1*parameter)
+        out = ((eP - eN)/(eP + eN))
+    elif activationFunction == "relu":
+        out = np.maximum(0,parameter)
+    elif activationFunction == "softmax":
+        exp = np.exp(parameter)
+        out = exp/np.sum(exp)
     return out
-def softmaxActivation(parameter):
-    exp = np.exp(parameter)
-    out = exp/np.sum(exp)
-    return out
-def feedForwardNN(x,weights,bias):
+#def softmaxActivation(parameter):
+#   exp = np.exp(parameter)
+#    out = exp/np.sum(exp)
+#    return out
+def feedForwardNN(neuralNet,x,weights,bias):  #do not change arguments
     nHiddenLayers = len(bias)-1
     a = []
     h = []
     prev = x
     for i in range(nHiddenLayers):
         pA = preActivate(prev,weights[i],bias[i])
-        activation = logisticActivation(pA)
-        prev = activation
+        activ = activation(neuralNet.hLActivationFunc,pA)
+        prev = activ
         a.append(pA)
-        h.append(activation)
+        h.append(activ)
     pA = preActivate(prev,weights[nHiddenLayers],bias[nHiddenLayers])
     a.append(pA)
-    output = softmaxActivation(pA)
+    output = activation(neuralNet.outputActivationFunc,pA)
     return a,h,output
 
-def computeSoftMaxLoss(yHat,y):
-    return -1* np.log(yHat[y])
+def computeLoss(lossFunc,yHat,y):
+    if lossFunc == "crossentropy":
+        return -1* np.log(yHat[y])[0][0]
+    elif lossFunc == "mse":
+        e = np.zeros((10,1))
+        e[y] = 1
+        return np.sum((yHat-y)**2)
 
-def derivativeActivation(activation,parameter):
+def derivativeActivation(activationFunction,parameter):
     a = 0
-    if activation == "logistic":
-        a = logisticActivation(parameter)
+    if activationFunction == "sigmoid":
+        a = activation(activationFunction,parameter)
         a = np.multiply(a,(1-a))
+    elif activationFunction == "tanh":
+        a = activation(activationFunction,parameter)
+        a = 1 - np.multiply(a,a)
+    elif activationFunction == "relu":
+        a = activation(activationFunction,parameter)
+        for i in range(0,a.shape[0]):
+            if a[i] > 0 :
+                a[i] = 1
     return a
 
-def backPropagation(a,h,x,y,yHat,weights,nHiddenLayers):
+def backPropagation(a,h,x,y,yHat,weights,nHiddenLayers,neuralNet):
     weightsGrad = [0]*(nHiddenLayers+1)
     biasGrad = [0]*(nHiddenLayers+1)
     el = np.zeros(shape = (10,1))
     el[y] = 1
-    aLGrad = -(el-yHat)
+    aLGrad = np.zeros(shape = (10,1))
+    if neuralNet.lossFunc == "crossentropy" :
+        aLGrad = -(el-yHat)
+    elif neuralNet.lossFunc == "mse":
+        for i in range(0,10):
+            I = np.zeros(shape = (10,1))
+            I[i] = 1
+            aLGrad[i] = 2* np.sum(np.multiply(np.multiply(yHat-el,yHat),I-yHat[i]))
+        
     for k in range(nHiddenLayers,0,-1):
         weightsGrad[k] = (np.dot(aLGrad,np.transpose(h[k-1])))
         biasGrad[k] = (aLGrad)
         hk = np.dot(np.transpose(weights[k]),aLGrad)                         #NOTE : hk is really hk-1
-        aLGrad = np.multiply(hk,derivativeActivation("logistic",a[k-1]))          
+        aLGrad = np.multiply(hk,derivativeActivation(neuralNet.hLActivationFunc,a[k-1]))          
     weightsGrad[0] = (np.dot(aLGrad,np.transpose(x)))
     biasGrad[0] = (aLGrad)
     return weightsGrad,biasGrad
@@ -125,11 +174,14 @@ def predict(X,Y,neuralNet):
     nCorrectPredictions = 0
     loss = 0
     for x, y in zip(X,Y):
-        _, _, yHat = feedForwardNN(x,neuralNet.weights,neuralNet.bias)
-        loss += computeSoftMaxLoss(yHat,y)
+        _, _, yHat = feedForwardNN(neuralNet,x,neuralNet.weights,neuralNet.bias)
+        if neuralNet.lossFunc == "crossentropy":
+            loss += computeLoss("crossentropy",yHat,y)
+        elif neuralNet.lossFunc == "mse":
+            loss += computeLoss("mse",yHat,y)
         if validate(yHat,y):
             nCorrectPredictions += 1
-    return loss[0]/X.shape[0], nCorrectPredictions/X.shape[0]
+    return loss/X.shape[0], nCorrectPredictions/X.shape[0]
 
 def getNextBatch(batchSize,startIndex,notDone):
     Xb,Yb = [], []
@@ -144,9 +196,10 @@ def getNextBatch(batchSize,startIndex,notDone):
     return Xb,Yb, startIndex , notDone
 
 
-def subRoutine(neuralNet,weights,bias,batchSize,startIndex,notDone,lossFunction):
+def subRoutine(neuralNet,weights, bias, batchSize,startIndex,notDone):  #Do not change arguments 
     #weights = neuralNet.weights
     #bias = neuralNet.bias
+    lossFunc = neuralNet.lossFunc
     nHiddenLayers = neuralNet.nHiddenLayers
     #weightsGrad = weightsGrad
     #biasGrad = biasGrad
@@ -157,21 +210,23 @@ def subRoutine(neuralNet,weights,bias,batchSize,startIndex,notDone,lossFunction)
 
     Xb,Yb, startIndex, notDone = getNextBatch(batchSize,startIndex,notDone)
     for x,y in zip(Xb,Yb):
-        a,h,yHat = feedForwardNN(x, weights, bias)
+        a,h,yHat = feedForwardNN(neuralNet,x, weights, bias)
         
         if validate(yHat,y) :
             nCorrectPredictions += 1
-        if lossFunction == "SoftMax":
-            loss += computeSoftMaxLoss(yHat,y)
+        if lossFunc == "crossentropy":
+            loss += computeLoss("crossentropy",yHat,y)
+        elif lossFunc == "mse":
+            loss += computeLoss("mse",yHat,y)
         
         #Computing Gradients
-        wGrad, bGrad = backPropagation(a,h,x,y,yHat, weights, nHiddenLayers)# check y bias is not used
+        wGrad, bGrad = backPropagation(a,h,x,y,yHat, weights, nHiddenLayers,neuralNet)# check y bias is not used
 
         weightsGrad = [ w + wG/ batchSize  for w, wG in zip(weightsGrad, wGrad)]
         biasGrad = [ b + bG/ batchSize for b, bG in zip(biasGrad, bGrad)]
     return startIndex, notDone, weightsGrad, biasGrad, nCorrectPredictions,loss
 
-def train(neuralNet,batchSize,optimizer,lossFunction,eta):
+def train(neuralNet,batchSize,optimizer,eta,alpha):
     nHiddenLayers = neuralNet.nHiddenLayers
     startIndex = 0
     notDone = True
@@ -180,21 +235,26 @@ def train(neuralNet,batchSize,optimizer,lossFunction,eta):
     nCorrectPredictions = 0
     
     while notDone:
-        startIndex,notDone,weightsGrad,biasGrad,nCorrect,l = subRoutine(neuralNet,neuralNet.weights,neuralNet.bias,batchSize,startIndex,notDone,lossFunction)
+        startIndex,notDone,weightsGrad,biasGrad,nCorrect,l = subRoutine(neuralNet,neuralNet.weights,neuralNet.bias,batchSize,startIndex,notDone)
         nCorrectPredictions += nCorrect
         loss += l
-    
+
+        #Regularization
+        weightsGrad = [wG + alpha* w/batchSize for w,wG in zip(neuralNet.weights,weightsGrad)]
+
         if optimizer == "sgd":
             Optimizers.SGD(neuralNet,weightsGrad,biasGrad,eta)
         elif optimizer == "mgd":
             Optimizers.MGD(neuralNet,weightsGrad,biasGrad,eta)
         elif optimizer == "nagd":
             if notDone:
-                param = (batchSize,startIndex,notDone,lossFunction)
+                param = (batchSize,startIndex,notDone,neuralNet.lossFunc)
                 Optimizers.NAGD(neuralNet,weightsGrad,biasGrad,eta,param)
         elif optimizer == "rmsprop":
             Optimizers.RMSProp(neuralNet,weightsGrad,biasGrad,eta)
         elif optimizer == "adam":
+            Optimizers.Adam(neuralNet,weightsGrad,biasGrad,eta)
+        elif optimizer == "Nadam":
             Optimizers.Adam(neuralNet,weightsGrad,biasGrad,eta)
 
     return loss/ n, nCorrectPredictions/ n
@@ -228,7 +288,7 @@ class Optimizers:
         startIndex = param[1]
         notDone = param[2]
         lossFunction = param[3]
-        _,_,weightsLookaheadGrad,biasLookaheadGrad,_,_ = subRoutine(neuralNet,weightsLookahead,biasLookahead,batchSize,startIndex,notDone,lossFunction)
+        _,_,weightsLookaheadGrad,biasLookaheadGrad,_,_ = subRoutine(neuralNet,weightsLookahead,biasLookahead,batchSize,startIndex,notDone)
 
         Optimizers.updateWeights = [Optimizers.gamma*u + eta*wG  for wG, u in zip(weightsLookaheadGrad,Optimizers.updateWeights)]
         Optimizers.updateBias = [Optimizers.gamma*u + eta*bG  for bG, u in zip(biasLookaheadGrad,Optimizers.updateBias)]
@@ -265,6 +325,18 @@ class Optimizers:
         neuralNet.weights = [ w - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),m)  for w,m, u in zip( neuralNet.weights,mWHat,uWHat)]
         neuralNet.bias = [ b - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),m)  for b,m, u in zip( neuralNet.bias,mBHat,uBHat)]
     
+    def Nadam(neuralNet,weightsGrad,biasGrad,eta):
+        Optimizers.mW = [Optimizers.beta1*u + (1-Optimizers.beta1)*(wG) for wG, u in zip(weightsGrad,Optimizers.mW)]
+        Optimizers.mB = [Optimizers.beta1*u + (1-Optimizers.beta1)*(bG) for bG, u in zip(biasGrad,Optimizers.mB)]
+        Optimizers.uW = [Optimizers.beta2*u + (1-Optimizers.beta2)*(wG**2) for wG, u in zip(weightsGrad,Optimizers.uW)]
+        Optimizers.uB = [Optimizers.beta2*u + (1-Optimizers.beta2)*(bG**2) for bG, u in zip(biasGrad,Optimizers.uB)]
+
+        mWHat = [m/(1-Optimizers.beta1) for m in Optimizers.mW]
+        mBHat = [m/(1-Optimizers.beta1) for m in Optimizers.mB]
+        uWHat = [u/(1-Optimizers.beta2) for u in Optimizers.uW]
+        uBHat = [u/(1-Optimizers.beta2) for u in Optimizers.uB]
+        neuralNet.weights = [ w - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),(beta1*m + wG))  for w,m, u, wG in zip( neuralNet.weights,mWHat,uWHat, weightsGrad)]
+        neuralNet.bias = [ b - np.multiply((eta/(np.sqrt(u+Optimizers.eps))),(beta1*m + bG))  for b,m, u, bG in zip( neuralNet.bias,mBHat,uBHat,biasGrad)]
     #init    
     def __init__(self):
         Optimizers.updateWeights = [0]*( NeuralNet.nHiddenLayers+1)
@@ -282,16 +354,24 @@ sweep_config = {
     'name' : 'Working sweep',
     "method": "grid",
     'metric': { 
-        'name':'loss',
+        'name':'Loss',
         'goal': 'minimize',
         },
+    'early_terminate':{
+        'type': 'hyperband',
+        'min_iter': 3
+    },
     'parameters':{
-        'learning_rate': {'values' : [.001, 0.0001]},
+        'learning_rate': {'values' : [.001]},
         'epochs' : {'values' : [10]},
-        'optimizer':{'values' : ['nagd','rmsprop','adam']},
-        'n_hidden_layers' : {'values' : [3,4,5]},
-        'size_hidden_layers' : {'values' : [32,64,128]},
-        'batch_size' : {'values': [16,32,64]}
+        'optimizer':{'values' : ['nagd','adam']},
+        'n_hidden_layers' : {'values' : [4]},
+        'size_hidden_layers' : {'values' : [32,64]},
+        'batch_size' : {'values': [32,64]},
+        'hidden_Layer_AF':{'values' : ['sigmoid','tanh']},
+        'loss_func':{'values' : ['mse', 'crossentropy']},
+        'alpha' : {'values' : [0,0.0005,0.5]},
+        'initializer':{'values' : ['xavier', 'random']}
         }
 }
 
@@ -307,8 +387,10 @@ hyperparameter_defaults = dict(
 def run():
     
     wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
-    
     config = wandb.config
+    name = "hl_"+str(config.n_hidden_layers)+"_bs_"+str(config.batch_size) + "_sHL_" +str(config.size_hidden_layers) + "_ac_"+str(config.hidden_Layer_AF)
+    wandb.init().name = name
+    
     nHiddenLayers = config.n_hidden_layers
     neurons = []
     neurons.append(config.size_hidden_layers)
@@ -317,7 +399,10 @@ def run():
     epochs = config.epochs
     batchSize = config.batch_size
     optimizer = config.optimizer
-
+    lossFunc = config.loss_func
+    hLActivationFunc = config.hidden_Layer_AF
+    alpha = config.alpha
+    initializer = config.initializer
     '''
     #----------
     nHiddenLayers = 3
@@ -328,26 +413,30 @@ def run():
     epochs = 10
     batchSize = 64
     optimizer = "adam"
+    lossFunc = "mse"
+    hLActivationFunc = "relu"
+    alpha = 0.5
+    initializer = 'xavier'
     '''
     #----------------
 
     outputNeurons = 10
-    lossFunction = "SoftMax"
-    weights,bias = initializeNN(nHiddenLayers,neurons,outputNeurons)
+    outputActivationFunc = "softmax"
+    weights,bias = initializeNN(nHiddenLayers,neurons,outputNeurons,initializer)
 
-    neuralNet = NeuralNet(nHiddenLayers,neurons,weights,bias)
+    neuralNet = NeuralNet(nHiddenLayers,neurons,weights,bias,hLActivationFunc,outputActivationFunc,lossFunc)
     Optimizers()
     t = 1
     while t <= epochs:
-        loss, accuracy = train(neuralNet, batchSize,optimizer,lossFunction,eta)  
+        loss, accuracy = train(neuralNet, batchSize,optimizer,eta, alpha)  
         valLoss, valAccuracy = predict(XVal,YVal,neuralNet)   
         print("Epoch : ",t,"Loss  = ",loss, " Accuracy : ", accuracy,"Val Loss  = ",valLoss, "Val Accuracy : ", valAccuracy)
         wandb.log({'epoch':t,'Loss':loss, "Accuracy":accuracy,'Val_Loss':valLoss, "Val_Accuracy":valAccuracy})
-        wandb.log({"metric":valLoss })
+        wandb.log({"metric":loss })
         t+=1
 
 sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
 wandb.agent(sweepId,function=run)
 
-#run()
+run()
 

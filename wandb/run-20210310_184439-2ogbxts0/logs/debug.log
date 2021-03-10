@@ -1,0 +1,191 @@
+2021-03-10 18:44:39,501 INFO    Thread-14 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': '2ogbxts0', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-2ogbxts0.yaml'}
+2021-03-10 18:44:39,501 INFO    Thread-14 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:44:39,503 INFO    Thread-14 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184439-2ogbxts0\logs\debug.log
+2021-03-10 18:44:39,505 INFO    Thread-14 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184439-2ogbxts0\logs\debug-internal.log
+2021-03-10 18:44:39,507 INFO    Thread-14 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:44:39,508 INFO    Thread-14 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:44:39,509 INFO    Thread-14 :13084 [wandb_init.py:init():398] wandb.init() called when a run is still active
+2021-03-10 18:44:51,006 INFO    Thread-14 :13084 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/2ogbxts0
+2021-03-10 18:44:51,009 INFO    Thread-14 :13084 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 1
+2021-03-10 18:44:51,009 INFO    Thread-14 :13084 [wandb_run.py:_restore():1364] restore
+2021-03-10 18:44:51,733 INFO    Thread-14 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 787
+  total_bytes: 787
+}
+
+2021-03-10 18:44:53,749 INFO    Thread-14 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3708
+  total_bytes: 3708
+}
+
+2021-03-10 18:44:55,778 INFO    Thread-14 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3708
+  total_bytes: 3708
+}
+
+2021-03-10 18:44:58,139 INFO    Thread-14 :13084 [wandb_run.py:_show_files():1737] logging synced files
+2021-03-10 18:44:58,156 ERROR   MainThread:13084 [pyagent.py:_run_jobs_from_queue():231] Run 2ogbxts0 errored: KeyError(0,)
+2021-03-10 18:45:00,678 INFO    Thread-20 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': 'suc3ojf4', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-suc3ojf4.yaml'}
+2021-03-10 18:45:00,680 INFO    Thread-20 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:45:00,683 INFO    Thread-20 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184500-suc3ojf4\logs\debug.log
+2021-03-10 18:45:00,686 INFO    Thread-20 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184500-suc3ojf4\logs\debug-internal.log
+2021-03-10 18:45:00,737 INFO    Thread-20 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:45:00,738 INFO    Thread-20 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 10, 'n_hidden_layers': 4, 'size_hidden_layers': 64, 'optimizer': 'adam'}
+2021-03-10 18:45:00,741 INFO    Thread-20 :13084 [wandb_init.py:init():401] starting backend
+2021-03-10 18:45:00,744 INFO    Thread-20 :13084 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-10 18:45:00,810 INFO    Thread-20 :13084 [backend.py:ensure_launched():123] starting backend process...
+2021-03-10 18:45:03,751 INFO    Thread-20 :13084 [backend.py:ensure_launched():128] started backend process with pid: 8700
+2021-03-10 18:45:03,824 INFO    Thread-20 :13084 [wandb_init.py:init():406] backend started and connected
+2021-03-10 18:45:03,913 INFO    Thread-20 :13084 [wandb_run.py:_config_callback():669] config_cb None None {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+2021-03-10 18:45:03,930 INFO    Thread-20 :13084 [wandb_init.py:init():446] updated telemetry
+2021-03-10 18:45:03,983 INFO    Thread-20 :13084 [wandb_init.py:init():465] communicating current version
+2021-03-10 18:45:08,997 INFO    Thread-20 :13084 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-10 18:45:11,227 INFO    Thread-20 :13084 [wandb_init.py:init():503] starting run threads in backend
+2021-03-10 18:45:16,537 INFO    Thread-20 :13084 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-10 18:45:16,550 INFO    Thread-20 :13084 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-10 18:45:16,552 INFO    Thread-20 :13084 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-10 18:45:16,554 INFO    Thread-20 :13084 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-10 18:45:16,556 INFO    Thread-20 :13084 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-10 18:45:16,929 INFO    Thread-20 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': 'suc3ojf4', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-suc3ojf4.yaml'}
+2021-03-10 18:45:16,931 INFO    Thread-20 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:45:16,934 INFO    Thread-20 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184516-suc3ojf4\logs\debug.log
+2021-03-10 18:45:16,937 INFO    Thread-20 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184516-suc3ojf4\logs\debug-internal.log
+2021-03-10 18:45:16,940 INFO    Thread-20 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:45:16,942 INFO    Thread-20 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:45:16,948 INFO    Thread-20 :13084 [wandb_init.py:init():398] wandb.init() called when a run is still active
+2021-03-10 18:45:28,660 INFO    Thread-20 :13084 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/suc3ojf4
+2021-03-10 18:45:28,664 INFO    Thread-20 :13084 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 1
+2021-03-10 18:45:28,666 INFO    Thread-20 :13084 [wandb_run.py:_restore():1364] restore
+2021-03-10 18:45:39,047 INFO    Thread-20 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+}
+pusher_stats {
+}
+
+2021-03-10 18:45:41,059 INFO    Thread-20 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3708
+  total_bytes: 3708
+}
+
+2021-03-10 18:45:43,070 INFO    Thread-20 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3708
+  total_bytes: 3708
+}
+
+2021-03-10 18:45:45,217 INFO    Thread-20 :13084 [wandb_run.py:_show_files():1737] logging synced files
+2021-03-10 18:45:45,228 ERROR   MainThread:13084 [pyagent.py:_run_jobs_from_queue():231] Run suc3ojf4 errored: KeyError(0,)
+2021-03-10 18:45:50,373 INFO    Thread-26 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': '7zi6zrrt', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-7zi6zrrt.yaml'}
+2021-03-10 18:45:50,374 INFO    Thread-26 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:45:50,374 INFO    Thread-26 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184550-7zi6zrrt\logs\debug.log
+2021-03-10 18:45:50,375 INFO    Thread-26 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184550-7zi6zrrt\logs\debug-internal.log
+2021-03-10 18:45:50,376 INFO    Thread-26 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:45:50,377 INFO    Thread-26 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 10, 'n_hidden_layers': 4, 'size_hidden_layers': 64, 'optimizer': 'adam'}
+2021-03-10 18:45:50,379 INFO    Thread-26 :13084 [wandb_init.py:init():401] starting backend
+2021-03-10 18:45:50,380 INFO    Thread-26 :13084 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-10 18:45:50,394 INFO    Thread-26 :13084 [backend.py:ensure_launched():123] starting backend process...
+2021-03-10 18:45:51,519 INFO    Thread-26 :13084 [backend.py:ensure_launched():128] started backend process with pid: 13452
+2021-03-10 18:45:51,550 INFO    Thread-26 :13084 [wandb_init.py:init():406] backend started and connected
+2021-03-10 18:45:51,571 INFO    Thread-26 :13084 [wandb_run.py:_config_callback():669] config_cb None None {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+2021-03-10 18:45:51,575 INFO    Thread-26 :13084 [wandb_init.py:init():446] updated telemetry
+2021-03-10 18:45:51,591 INFO    Thread-26 :13084 [wandb_init.py:init():465] communicating current version
+2021-03-10 18:45:55,129 INFO    Thread-26 :13084 [wandb_init.py:init():470] got version response upgrade_message: "wandb version 0.10.22 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2021-03-10 18:45:55,131 INFO    Thread-26 :13084 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-10 18:45:55,707 INFO    Thread-26 :13084 [wandb_init.py:init():503] starting run threads in backend
+2021-03-10 18:46:00,742 INFO    Thread-26 :13084 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-10 18:46:00,748 INFO    Thread-26 :13084 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-10 18:46:00,752 INFO    Thread-26 :13084 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-10 18:46:00,761 INFO    Thread-26 :13084 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-10 18:46:00,785 INFO    Thread-26 :13084 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': '7zi6zrrt', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-7zi6zrrt.yaml'}
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184600-7zi6zrrt\logs\debug.log
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184600-7zi6zrrt\logs\debug-internal.log
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:46:00,880 INFO    Thread-26 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:46:00,895 INFO    Thread-26 :13084 [wandb_init.py:init():398] wandb.init() called when a run is still active
+2021-03-10 18:46:00,967 INFO    Thread-26 :13084 [wandb_run.py:finish():1078] finishing run -my/dl_assignment1/7zi6zrrt
+2021-03-10 18:46:00,969 INFO    Thread-26 :13084 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 1
+2021-03-10 18:46:00,970 INFO    Thread-26 :13084 [wandb_run.py:_restore():1364] restore
+2021-03-10 18:46:05,001 INFO    Thread-26 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+}
+pusher_stats {
+}
+
+2021-03-10 18:46:07,029 INFO    Thread-26 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  total_bytes: 3708
+}
+
+2021-03-10 18:46:09,101 INFO    Thread-26 :13084 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3708
+  total_bytes: 3708
+}
+
+2021-03-10 18:46:11,073 INFO    Thread-26 :13084 [wandb_run.py:_show_files():1737] logging synced files
+2021-03-10 18:46:11,095 ERROR   MainThread:13084 [pyagent.py:_run_jobs_from_queue():231] Run 7zi6zrrt errored: KeyError(0,)
+2021-03-10 18:46:14,563 INFO    Thread-32 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': 'ao5blmt7', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-ao5blmt7.yaml'}
+2021-03-10 18:46:14,564 INFO    Thread-32 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:46:14,565 INFO    Thread-32 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184614-ao5blmt7\logs\debug.log
+2021-03-10 18:46:14,566 INFO    Thread-32 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184614-ao5blmt7\logs\debug-internal.log
+2021-03-10 18:46:14,604 INFO    Thread-32 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:46:14,604 INFO    Thread-32 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 10, 'n_hidden_layers': 4, 'size_hidden_layers': 64, 'optimizer': 'adam'}
+2021-03-10 18:46:14,604 INFO    Thread-32 :13084 [wandb_init.py:init():401] starting backend
+2021-03-10 18:46:14,604 INFO    Thread-32 :13084 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-10 18:46:14,621 INFO    Thread-32 :13084 [backend.py:ensure_launched():123] starting backend process...
+2021-03-10 18:46:15,828 INFO    Thread-32 :13084 [backend.py:ensure_launched():128] started backend process with pid: 6696
+2021-03-10 18:46:15,831 INFO    Thread-32 :13084 [wandb_init.py:init():406] backend started and connected
+2021-03-10 18:46:15,842 INFO    Thread-32 :13084 [wandb_run.py:_config_callback():669] config_cb None None {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+2021-03-10 18:46:15,845 INFO    Thread-32 :13084 [wandb_init.py:init():446] updated telemetry
+2021-03-10 18:46:15,848 INFO    Thread-32 :13084 [wandb_init.py:init():465] communicating current version
+2021-03-10 18:46:20,005 INFO    Thread-32 :13084 [wandb_init.py:init():470] got version response upgrade_message: "wandb version 0.10.22 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2021-03-10 18:46:20,008 INFO    Thread-32 :13084 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-10 18:46:20,782 INFO    Thread-32 :13084 [wandb_init.py:init():503] starting run threads in backend
+2021-03-10 18:46:25,836 INFO    Thread-32 :13084 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-10 18:46:25,894 INFO    Thread-32 :13084 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-10 18:46:25,896 INFO    Thread-32 :13084 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-10 18:46:25,897 INFO    Thread-32 :13084 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-10 18:46:25,898 INFO    Thread-32 :13084 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-10 18:46:25,990 INFO    Thread-32 :13084 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'jmp8s6ya', 'run_id': 'ao5blmt7', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-jmp8s6ya\\config-ao5blmt7.yaml'}
+2021-03-10 18:46:25,993 INFO    Thread-32 :13084 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:46:25,994 INFO    Thread-32 :13084 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184625-ao5blmt7\logs\debug.log
+2021-03-10 18:46:25,996 INFO    Thread-32 :13084 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184625-ao5blmt7\logs\debug-internal.log
+2021-03-10 18:46:25,999 INFO    Thread-32 :13084 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:46:26,000 INFO    Thread-32 :13084 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:46:26,003 INFO    Thread-32 :13084 [wandb_init.py:init():398] wandb.init() called when a run is still active

@@ -1,0 +1,2 @@
+c:\Users\MY\.vscode\extensions\ms-python.python-2021.2.625869727\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_safe_repr.py:273: VisibleDeprecationWarning: sctypeNA and typeNA will be removed in v1.18 of numpy
+  item = obj[key]

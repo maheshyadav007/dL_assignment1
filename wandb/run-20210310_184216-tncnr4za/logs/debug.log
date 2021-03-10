@@ -1,0 +1,8 @@
+2021-03-10 18:42:16,577 INFO    Thread-26 :3616 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': '00phcm50', 'run_id': 'tncnr4za', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-00phcm50\\config-tncnr4za.yaml'}
+2021-03-10 18:42:16,580 INFO    Thread-26 :3616 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:42:16,584 INFO    Thread-26 :3616 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184216-tncnr4za\logs\debug.log
+2021-03-10 18:42:16,588 INFO    Thread-26 :3616 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184216-tncnr4za\logs\debug-internal.log
+2021-03-10 18:42:16,591 INFO    Thread-26 :3616 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:42:16,594 INFO    Thread-26 :3616 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:42:16,600 INFO    Thread-26 :3616 [wandb_init.py:init():398] wandb.init() called when a run is still active

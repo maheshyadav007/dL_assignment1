@@ -1,0 +1,47 @@
+2021-03-10 18:42:09,061 INFO    MainThread:14120 [internal.py:wandb_internal():91] W&B internal server running at pid: 14120, started at: 2021-03-10 18:42:09.053949
+2021-03-10 18:42:09,074 INFO    WriterThread:14120 [datastore.py:open_for_write():77] open: D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_184205-tncnr4za\run-tncnr4za.wandb
+2021-03-10 18:42:09,076 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: check_version
+2021-03-10 18:42:09,079 DEBUG   SenderThread:14120 [sender.py:send():122] send: header
+2021-03-10 18:42:09,080 DEBUG   SenderThread:14120 [sender.py:send():122] send: request
+2021-03-10 18:42:09,080 DEBUG   SenderThread:14120 [sender.py:send_request():131] send_request: check_version
+2021-03-10 18:42:10,323 DEBUG   SenderThread:14120 [sender.py:send():122] send: run
+2021-03-10 18:42:11,061 INFO    SenderThread:14120 [sender.py:_start_run_threads():599] run started: tncnr4za with start time 1615381927
+2021-03-10 18:42:11,061 DEBUG   SenderThread:14120 [sender.py:send():122] send: summary
+2021-03-10 18:42:11,063 INFO    SenderThread:14120 [sender.py:_save_file():730] saving file wandb-summary.json with policy end
+2021-03-10 18:42:11,068 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: run_start
+2021-03-10 18:42:32,727 DEBUG   HandlerThread:14120 [meta.py:__init__():34] meta init
+2021-03-10 18:42:32,729 DEBUG   HandlerThread:14120 [meta.py:__init__():48] meta init done
+2021-03-10 18:42:32,730 DEBUG   HandlerThread:14120 [meta.py:probe():190] probe
+2021-03-10 18:42:32,776 DEBUG   HandlerThread:14120 [meta.py:_setup_git():180] setup git
+2021-03-10 18:42:33,214 DEBUG   HandlerThread:14120 [meta.py:_setup_git():187] setup git done
+2021-03-10 18:42:33,215 DEBUG   HandlerThread:14120 [meta.py:_save_pip():52] save pip
+2021-03-10 18:42:33,222 DEBUG   HandlerThread:14120 [meta.py:_save_pip():66] save pip done
+2021-03-10 18:42:33,223 DEBUG   HandlerThread:14120 [meta.py:probe():231] probe done
+2021-03-10 18:42:33,283 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: status
+2021-03-10 18:42:33,286 DEBUG   SenderThread:14120 [sender.py:send():122] send: request
+2021-03-10 18:42:33,287 DEBUG   SenderThread:14120 [sender.py:send_request():131] send_request: status
+2021-03-10 18:42:33,810 DEBUG   SenderThread:14120 [sender.py:send():122] send: run
+2021-03-10 18:42:35,195 INFO    SenderThread:14120 [sender.py:send_run():502] updated run: tncnr4za
+2021-03-10 18:42:35,196 DEBUG   SenderThread:14120 [sender.py:send():122] send: files
+2021-03-10 18:42:35,198 INFO    SenderThread:14120 [sender.py:_save_file():730] saving file wandb-metadata.json with policy now
+2021-03-10 18:42:36,838 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:42:41,797 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:42:46,721 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:42:48,837 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: status
+2021-03-10 18:42:48,838 DEBUG   SenderThread:14120 [sender.py:send():122] send: request
+2021-03-10 18:42:48,839 DEBUG   SenderThread:14120 [sender.py:send_request():131] send_request: status
+2021-03-10 18:42:51,621 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:42:56,532 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:01,421 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:04,416 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: status
+2021-03-10 18:43:04,417 DEBUG   SenderThread:14120 [sender.py:send():122] send: request
+2021-03-10 18:43:04,418 DEBUG   SenderThread:14120 [sender.py:send_request():131] send_request: status
+2021-03-10 18:43:06,419 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:11,371 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:16,348 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:20,023 DEBUG   HandlerThread:14120 [handler.py:handle_request():101] handle_request: status
+2021-03-10 18:43:20,025 DEBUG   SenderThread:14120 [sender.py:send():122] send: request
+2021-03-10 18:43:20,026 DEBUG   SenderThread:14120 [sender.py:send_request():131] send_request: status
+2021-03-10 18:43:21,231 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:26,087 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats
+2021-03-10 18:43:30,961 DEBUG   SenderThread:14120 [sender.py:send():122] send: stats

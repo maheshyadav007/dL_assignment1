@@ -1,0 +1,32 @@
+2021-03-10 20:53:24,666 INFO    MainThread:12100 [internal.py:wandb_internal():91] W&B internal server running at pid: 12100, started at: 2021-03-10 20:53:24.657732
+2021-03-10 20:53:24,677 INFO    WriterThread:12100 [datastore.py:open_for_write():77] open: D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_205321-qbfutde0\run-qbfutde0.wandb
+2021-03-10 20:53:24,679 DEBUG   HandlerThread:12100 [handler.py:handle_request():101] handle_request: check_version
+2021-03-10 20:53:24,682 DEBUG   SenderThread:12100 [sender.py:send():122] send: header
+2021-03-10 20:53:24,683 DEBUG   SenderThread:12100 [sender.py:send():122] send: request
+2021-03-10 20:53:24,683 DEBUG   SenderThread:12100 [sender.py:send_request():131] send_request: check_version
+2021-03-10 20:53:25,719 DEBUG   SenderThread:12100 [sender.py:send():122] send: run
+2021-03-10 20:53:26,386 INFO    SenderThread:12100 [sender.py:_start_run_threads():599] run started: qbfutde0 with start time 1615389802
+2021-03-10 20:53:26,386 DEBUG   SenderThread:12100 [sender.py:send():122] send: summary
+2021-03-10 20:53:26,388 DEBUG   HandlerThread:12100 [handler.py:handle_request():101] handle_request: run_start
+2021-03-10 20:53:26,396 INFO    SenderThread:12100 [sender.py:_save_file():730] saving file wandb-summary.json with policy end
+2021-03-10 20:53:31,789 DEBUG   HandlerThread:12100 [meta.py:__init__():34] meta init
+2021-03-10 20:53:31,789 DEBUG   HandlerThread:12100 [meta.py:__init__():48] meta init done
+2021-03-10 20:53:31,790 DEBUG   HandlerThread:12100 [meta.py:probe():190] probe
+2021-03-10 20:53:31,794 DEBUG   HandlerThread:12100 [meta.py:_setup_git():180] setup git
+2021-03-10 20:53:31,975 DEBUG   HandlerThread:12100 [meta.py:_setup_git():187] setup git done
+2021-03-10 20:53:31,976 DEBUG   HandlerThread:12100 [meta.py:_save_pip():52] save pip
+2021-03-10 20:53:31,979 DEBUG   HandlerThread:12100 [meta.py:_save_pip():66] save pip done
+2021-03-10 20:53:31,980 DEBUG   HandlerThread:12100 [meta.py:probe():231] probe done
+2021-03-10 20:53:32,024 DEBUG   HandlerThread:12100 [handler.py:handle_request():101] handle_request: status
+2021-03-10 20:53:32,025 DEBUG   SenderThread:12100 [sender.py:send():122] send: request
+2021-03-10 20:53:32,026 DEBUG   SenderThread:12100 [sender.py:send_request():131] send_request: status
+2021-03-10 20:53:32,394 DEBUG   SenderThread:12100 [sender.py:send():122] send: files
+2021-03-10 20:53:32,396 INFO    SenderThread:12100 [sender.py:_save_file():730] saving file wandb-metadata.json with policy now
+2021-03-10 20:53:35,497 DEBUG   SenderThread:12100 [sender.py:send():122] send: stats
+2021-03-10 20:53:40,323 DEBUG   SenderThread:12100 [sender.py:send():122] send: stats
+2021-03-10 20:53:45,181 DEBUG   SenderThread:12100 [sender.py:send():122] send: stats
+2021-03-10 20:53:47,411 DEBUG   HandlerThread:12100 [handler.py:handle_request():101] handle_request: status
+2021-03-10 20:53:47,412 DEBUG   SenderThread:12100 [sender.py:send():122] send: request
+2021-03-10 20:53:47,413 DEBUG   SenderThread:12100 [sender.py:send_request():131] send_request: status
+2021-03-10 20:53:50,049 DEBUG   SenderThread:12100 [sender.py:send():122] send: stats
+2021-03-10 20:53:54,938 DEBUG   SenderThread:12100 [sender.py:send():122] send: stats

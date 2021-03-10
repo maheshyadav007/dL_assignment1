@@ -1,0 +1,14 @@
+2021-03-10 18:21:00,693 INFO    Thread-8  :1796 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'dl_assignment1', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'xpd6qz04', 'run_id': 'ek2wk6gh', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-xpd6qz04\\config-ek2wk6gh.yaml'}
+2021-03-10 18:21:00,694 INFO    Thread-8  :1796 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-10 18:21:00,694 INFO    Thread-8  :1796 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_182100-ek2wk6gh\logs\debug.log
+2021-03-10 18:21:00,694 INFO    Thread-8  :1796 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210310_182100-ek2wk6gh\logs\debug-internal.log
+2021-03-10 18:21:00,754 INFO    Thread-8  :1796 [wandb_init.py:init():352] calling init triggers
+2021-03-10 18:21:00,754 INFO    Thread-8  :1796 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'crossentropy', 'n_hidden_layers': 4, 'optimizer': 'nadam', 'size_hidden_layers': 64}
+config: {}
+2021-03-10 18:21:00,755 INFO    Thread-8  :1796 [wandb_init.py:init():398] wandb.init() called when a run is still active
+2021-03-10 18:21:29,722 ERROR   Thread-7  :1796 [internal_api.py:execute():126] 429 response executing GraphQL.
+2021-03-10 18:21:29,722 ERROR   Thread-7  :1796 [internal_api.py:execute():127] {"error":"rate limit exceeded"}
+
+2021-03-10 18:23:14,591 ERROR   Thread-7  :1796 [internal_api.py:execute():126] 429 response executing GraphQL.
+2021-03-10 18:23:14,591 ERROR   Thread-7  :1796 [internal_api.py:execute():127] {"error":"rate limit exceeded"}
+

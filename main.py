@@ -358,25 +358,28 @@ class Optimizers:
 
 
 
+
+#For best model
 '''
 sweep_config = {
     'name' : 'Working sweep',
-    "method": "bayes",
+    "method": "grid",
     'metric': { 
         'name':'Loss',
         'goal': 'minimize',
         },
     'early_terminate':{
         'type': 'hyperband',
-        'min_iter': 1
-    },
+        'min_iter': 2,
+        'eta' : 2
+        },
     'parameters':{
         'learning_rate': {'values' : [.001]},
         'epochs' : {'values' : [10]},
-        'optimizer':{'values' : ['nadam']},
-        'n_hidden_layers' : {'values' : [4]},
+        'optimizer':{'values' : ['adam']},
+        'n_hidden_layers' : {'values' : [3]},
         'size_hidden_layers' : {'values' : [64]},
-        'batch_size' : {'values': [16]},
+        'batch_size' : {'values': [64]},
         'hidden_Layer_AF':{'values' : ['sigmoid']},
         'loss_func':{'values' : [ 'crossentropy']},
         'alpha' : {'values' : [0]},
@@ -474,12 +477,15 @@ def run():
         wandb.log({'epoch':t,'Loss':loss, "Accuracy":accuracy,'Val_Loss':valLoss, "Val_Accuracy":valAccuracy})
         wandb.log({"metric":accuracy })
         t+=1
-    '''
-    _, _, prediction = predict(x_test,y_test,neuralNet)
+
+    #predict on test data
+    testLoss, testAccuracy, prediction = predict(x_test,y_test,neuralNet)
     wandb.log({"conf_mat" : wandb.plot.confusion_matrix(probs=None,
                             preds=prediction, y_true=np.reshape(y_test,(y_test.shape[0])).tolist(),
                             class_names=list(classLabels.values()))})
-    '''
+    print("Accuracy on test data : ",testAccuracy)
+
+ #wandb sweep    
 sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
 wandb.agent(sweepId,function=run)
 

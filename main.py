@@ -248,6 +248,7 @@ def train(neuralNet,batchSize,optimizer,eta,alpha):
 
         #Regularization
         weightsGrad = [wG + alpha* w/batchSize for w,wG in zip(neuralNet.weights,weightsGrad)]
+        biasGrad = [bG + alpha* b/batchSize for b,bG in zip(neuralNet.bias,biasGrad)]
 
         if optimizer == "sgd":
             Optimizers.SGD(neuralNet,weightsGrad,biasGrad,eta)
@@ -387,15 +388,15 @@ sweep_config = {
 sweep_config = {
     'name' : 'Working sweep',
     "method": "random",
-    'metric': { 
-        'name':'Loss',
-        'goal': 'minimize',
-        },
     'early_terminate':{
         'type': 'hyperband',
-        'min_iter': 1,
-        'eta' : 1
-    },
+        'min_iter': 2,
+        'eta' : 2
+        },
+    'metric': { 
+        'name':'Accuracy',
+        'goal': 'maximize',
+        },
     'parameters':{
         'learning_rate': {'values' : [.001,0.0001]},
         'epochs' : {'values' : [10]},
@@ -404,7 +405,7 @@ sweep_config = {
         'size_hidden_layers' : {'values' : [32,64,128]},
         'batch_size' : {'values': [16,32,64]},
         'hidden_Layer_AF':{'values' : ['tanh','sigmoid','relu']},
-        'loss_func':{'values' : [ 'crossentropy']},
+        'loss_func':{'values' : [ 'mse']},
         'alpha' : {'values' : [0,0.0005,0.5]},
         'initializer':{'values' : ['random','xavier']}
         }
@@ -470,13 +471,13 @@ def run():
         loss, accuracy = train(neuralNet, batchSize,optimizer,eta, alpha)  
         valLoss, valAccuracy, _ = predict(XVal,YVal,neuralNet)   
         print("Epoch : ",t,"Loss  = ",loss, " Accuracy : ", accuracy,"Val Loss  = ",valLoss, "Val Accuracy : ", valAccuracy)
-        #wandb.log({'epoch':t,'Loss':loss, "Accuracy":accuracy,'Val_Loss':valLoss, "Val_Accuracy":valAccuracy})
-        #wandb.log({"metric":loss })
+        wandb.log({'epoch':t,'Loss':loss, "Accuracy":accuracy,'Val_Loss':valLoss, "Val_Accuracy":valAccuracy})
+        wandb.log({"metric":accuracy })
         t+=1
     '''
-    _, _, prediction = predict(x_train,y_train,neuralNet)
+    _, _, prediction = predict(x_test,y_test,neuralNet)
     wandb.log({"conf_mat" : wandb.plot.confusion_matrix(probs=None,
-                            preds=prediction, y_true=np.reshape(y_train,(y_train.shape[0])).tolist(),
+                            preds=prediction, y_true=np.reshape(y_test,(y_test.shape[0])).tolist(),
                             class_names=list(classLabels.values()))})
     '''
 sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")

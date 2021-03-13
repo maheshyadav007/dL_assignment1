@@ -425,7 +425,7 @@ hyperparameter_defaults = dict(
 
 def run():
     
-    wandb.init(config=hyperparameter_defaults ,project="dl_assignment1",entity = "-my")
+    wandb.init(config=hyperparameter_defaults)
     config = wandb.config
     name = "hl_"+str(config.n_hidden_layers)+"_bs_"+str(config.batch_size) + "_sHL_" +str(config.size_hidden_layers) + "_ac_"+str(config.hidden_Layer_AF) + "_op_"+str(config.optimizer)
     wandb.init().name = name
@@ -466,8 +466,8 @@ def run():
     neuralNet = NeuralNet(nHiddenLayers,neurons,weights,bias,hLActivationFunc,outputActivationFunc,lossFunc)
     Optimizers()
 
-    #NOTE : Function to send each class images to wandb (Commented so that it does not run everytime)
-    #outEachClass()
+    #NOTE : Function to send each class images to wandb
+    outEachClass()
 
     t = 1
     while t <= epochs:
@@ -485,7 +485,7 @@ def run():
                             class_names=list(classLabels.values()))})
     print("Accuracy on test data : ",testAccuracy)
 
- #wandb sweep    
+#wandb sweep    
 sweepId = wandb.sweep(sweep_config,entity = "-my",project = "dl_assignment1")
 wandb.agent(sweepId,function=run)
 

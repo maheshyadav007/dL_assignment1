@@ -1,0 +1,32 @@
+2021-03-13 21:27:56,366 INFO    Thread-8  :15588 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'test-drive', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'a6obo3ju', 'run_id': '8jkb718t', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-a6obo3ju\\config-8jkb718t.yaml'}
+2021-03-13 21:27:56,366 INFO    Thread-8  :15588 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-13 21:27:56,366 INFO    Thread-8  :15588 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212756-8jkb718t\logs\debug.log
+2021-03-13 21:27:56,366 INFO    Thread-8  :15588 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212756-8jkb718t\logs\debug-internal.log
+2021-03-13 21:27:56,367 INFO    Thread-8  :15588 [wandb_init.py:init():352] calling init triggers
+2021-03-13 21:27:56,367 INFO    Thread-8  :15588 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0.5, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'relu', 'initializer': 'random', 'learning_rate': 0.001, 'loss_func': 'mse', 'n_hidden_layers': 4, 'optimizer': 'mgd', 'size_hidden_layers': 128}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'epochs': 10, 'n_hidden_layers': 4, 'size_hidden_layers': 64, 'optimizer': 'adam'}
+2021-03-13 21:27:56,367 INFO    Thread-8  :15588 [wandb_init.py:init():401] starting backend
+2021-03-13 21:27:56,368 INFO    Thread-8  :15588 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
+2021-03-13 21:27:56,372 INFO    Thread-8  :15588 [backend.py:ensure_launched():123] starting backend process...
+2021-03-13 21:27:56,523 INFO    Thread-8  :15588 [backend.py:ensure_launched():128] started backend process with pid: 3996
+2021-03-13 21:27:56,525 INFO    Thread-8  :15588 [wandb_init.py:init():406] backend started and connected
+2021-03-13 21:27:56,534 INFO    Thread-8  :15588 [wandb_run.py:_config_callback():669] config_cb None None {'alpha': 0.5, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'relu', 'initializer': 'random', 'learning_rate': 0.001, 'loss_func': 'mse', 'n_hidden_layers': 4, 'optimizer': 'mgd', 'size_hidden_layers': 128}
+2021-03-13 21:27:56,536 INFO    Thread-8  :15588 [wandb_init.py:init():446] updated telemetry
+2021-03-13 21:27:56,536 INFO    Thread-8  :15588 [wandb_init.py:init():465] communicating current version
+2021-03-13 21:27:59,948 INFO    Thread-8  :15588 [wandb_init.py:init():470] got version response upgrade_message: "wandb version 0.10.22 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2021-03-13 21:27:59,949 INFO    Thread-8  :15588 [wandb_init.py:init():478] communicating run to backend with 30 second timeout
+2021-03-13 21:28:00,699 INFO    Thread-8  :15588 [wandb_init.py:init():503] starting run threads in backend
+2021-03-13 21:28:04,220 INFO    Thread-8  :15588 [wandb_run.py:_console_start():1422] atexit reg
+2021-03-13 21:28:04,222 INFO    Thread-8  :15588 [wandb_run.py:_redirect():1285] redirect: SettingsConsole.WRAP
+2021-03-13 21:28:04,223 INFO    Thread-8  :15588 [wandb_run.py:_redirect():1320] Wrapping output streams.
+2021-03-13 21:28:04,224 INFO    Thread-8  :15588 [wandb_run.py:_redirect():1336] Redirects installed.
+2021-03-13 21:28:04,224 INFO    Thread-8  :15588 [wandb_init.py:init():527] run started, returning control to user process
+2021-03-13 21:28:04,242 INFO    Thread-8  :15588 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'test-drive', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'a6obo3ju', 'run_id': '8jkb718t', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-a6obo3ju\\config-8jkb718t.yaml'}
+2021-03-13 21:28:04,243 INFO    Thread-8  :15588 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-13 21:28:04,243 INFO    Thread-8  :15588 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212804-8jkb718t\logs\debug.log
+2021-03-13 21:28:04,244 INFO    Thread-8  :15588 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212804-8jkb718t\logs\debug-internal.log
+2021-03-13 21:28:04,244 INFO    Thread-8  :15588 [wandb_init.py:init():352] calling init triggers
+2021-03-13 21:28:04,244 INFO    Thread-8  :15588 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0.5, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'relu', 'initializer': 'random', 'learning_rate': 0.001, 'loss_func': 'mse', 'n_hidden_layers': 4, 'optimizer': 'mgd', 'size_hidden_layers': 128}
+config: {}
+2021-03-13 21:28:04,245 INFO    Thread-8  :15588 [wandb_init.py:init():398] wandb.init() called when a run is still active

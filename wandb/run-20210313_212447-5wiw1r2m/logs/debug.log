@@ -1,0 +1,30 @@
+2021-03-13 21:24:47,620 INFO    Thread-20 :2416 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'test-drive', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': 'd3botkxb', 'run_id': '5wiw1r2m', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-d3botkxb\\config-5wiw1r2m.yaml'}
+2021-03-13 21:24:47,621 INFO    Thread-20 :2416 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-13 21:24:47,622 INFO    Thread-20 :2416 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212447-5wiw1r2m\logs\debug.log
+2021-03-13 21:24:47,622 INFO    Thread-20 :2416 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_212447-5wiw1r2m\logs\debug-internal.log
+2021-03-13 21:24:47,623 INFO    Thread-20 :2416 [wandb_init.py:init():352] calling init triggers
+2021-03-13 21:24:47,624 INFO    Thread-20 :2416 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 32, 'epochs': 10, 'hidden_Layer_AF': 'sigmoid', 'initializer': 'random', 'learning_rate': 0.001, 'loss_func': 'mse', 'n_hidden_layers': 4, 'optimizer': 'sgd', 'size_hidden_layers': 64}
+config: {}
+2021-03-13 21:24:47,625 INFO    Thread-20 :2416 [wandb_init.py:init():398] wandb.init() called when a run is still active
+2021-03-13 21:24:47,630 INFO    Thread-20 :2416 [wandb_run.py:finish():1078] finishing run -my/test-drive/5wiw1r2m
+2021-03-13 21:24:47,630 INFO    Thread-20 :2416 [wandb_run.py:_atexit_cleanup():1392] got exitcode: 1
+2021-03-13 21:24:47,631 INFO    Thread-20 :2416 [wandb_run.py:_restore():1364] restore
+2021-03-13 21:24:49,587 INFO    Thread-20 :2416 [wandb_run.py:_wait_for_finish():1515] got exit ret: file_counts {
+}
+pusher_stats {
+}
+
+2021-03-13 21:24:51,594 INFO    Thread-20 :2416 [wandb_run.py:_wait_for_finish():1515] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 4
+}
+pusher_stats {
+  uploaded_bytes: 3697
+  total_bytes: 3697
+}
+
+2021-03-13 21:24:52,978 INFO    Thread-20 :2416 [wandb_run.py:_show_files():1737] logging synced files
+2021-03-13 21:24:52,984 ERROR   MainThread:2416 [pyagent.py:_run_jobs_from_queue():231] Run 5wiw1r2m errored: UnboundLocalError("local variable 'outEachClassFlag' referenced before assignment",)
+2021-03-13 21:24:52,985 ERROR   MainThread:2416 [pyagent.py:_run_jobs_from_queue():242] Detected 3 failed runs in the first 60 seconds, killing sweep.

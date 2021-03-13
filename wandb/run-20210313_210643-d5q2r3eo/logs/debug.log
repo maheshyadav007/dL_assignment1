@@ -1,0 +1,8 @@
+2021-03-13 21:06:43,200 INFO    Thread-8  :8060 [wandb_setup.py:_flush():69] setting env: {'entity': '-my', 'project': 'test-drive', 'root_dir': 'D:\\IITM\\deepLearning\\Assignments\\assignment1', 'sweep_id': '437hwyen', 'run_id': 'd5q2r3eo', 'sweep_param_path': 'D:\\IITM\\deepLearning\\Assignments\\assignment1\\wandb\\sweep-437hwyen\\config-d5q2r3eo.yaml'}
+2021-03-13 21:06:43,200 INFO    Thread-8  :8060 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-03-13 21:06:43,200 INFO    Thread-8  :8060 [wandb_init.py:_log_setup():319] Logging user logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_210643-d5q2r3eo\logs\debug.log
+2021-03-13 21:06:43,201 INFO    Thread-8  :8060 [wandb_init.py:_log_setup():320] Logging internal logs to D:\IITM\deepLearning\Assignments\assignment1\wandb\run-20210313_210643-d5q2r3eo\logs\debug-internal.log
+2021-03-13 21:06:43,201 INFO    Thread-8  :8060 [wandb_init.py:init():352] calling init triggers
+2021-03-13 21:06:43,201 INFO    Thread-8  :8060 [wandb_init.py:init():359] wandb.init called with sweep_config: {'alpha': 0, 'batch_size': 16, 'epochs': 10, 'hidden_Layer_AF': 'relu', 'initializer': 'xavier', 'learning_rate': 0.001, 'loss_func': 'mse', 'n_hidden_layers': 3, 'optimizer': 'adam', 'size_hidden_layers': 32}
+config: {}
+2021-03-13 21:06:43,202 INFO    Thread-8  :8060 [wandb_init.py:init():398] wandb.init() called when a run is still active
